@@ -19,18 +19,26 @@ def chatting(request):
         question = request.POST.get('question')
         tag_post = request.POST.get('tag')
         
+
         # Xử lý kết quả
-        answer, tag = bot.run(question)
-        # answer = 'Đây là câu trả lời'
+        # answer, tag = bot.run(question, last_tag= last_tag)
+        # # answer = 'Đây là câu trả lời'
 
         # Xử lý content
         if tag_post == '':
-            content = Content(name= 'test2', last_tag= 'hhphh')
-            content.save()
+            # content = Content(name= 'test2', last_tag= 'hhphh')
+            # content.save()
 
             #...
+            answer, tag = bot.run(question)
+            content = Content(name= tag, last_tag= tag)
+            content.save()
         else:
             content = Content.objects.get(id= tag_post)
+            last_tag= content.last_tag
+            answer, tag = bot.run(question, last_tag= last_tag)
+            content.last_tag = tag
+            content.save()
 
         conversation.user_question = question
         conversation.bot_answer = answer

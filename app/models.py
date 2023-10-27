@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Content(models.Model):
     name = models.CharField(max_length=128, null=True)
-    last_tag = models.CharField(max_length=128, null=False)
+    last_tag = models.CharField(max_length=128, null=True)
 
     def __str__(self) -> str:
         return str(self.name)

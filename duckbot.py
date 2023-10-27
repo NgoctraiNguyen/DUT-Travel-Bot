@@ -87,7 +87,14 @@ class DuckBot():
             logits = logits.detach().cpu().numpy()
 
         preds = np.argmax(logits, axis = 1)
-        tag = self.tags[preds.item()]
+
+        probs = torch.softmax(outputs[0], dim=1)
+        prob = probs[0][preds.item()]
+        if prob.item() > 0.75 :
+            tag = self.tags[preds.item()]
+        else:
+            tag= None
+
         return tag
 
     def get_answer(self, question, context):
@@ -102,11 +109,23 @@ class DuckBot():
         return answer[0]['answer']
     
 
-    def run(self, question):
+    def run(self, question, last_tag= None):
         tag = self.get_tag(question)
-        context = self.df.loc[self.df['tag'] == tag, 'context'].values
-        context = context[0]
-        answer = self.get_answer(question, context)
+
+        if tag == None:
+            tag = last_tag
+        
+        if tag == None:
+            answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
+        else:
+            context = self.df.loc[self.df['tag'] == tag, 'context'].values
+            context = context[0]
+            answer = self.get_answer(question, context)
+            if answer == '':
+                context = context[1]
+                answer = self.get_answer(question, context)
+        if answer == '':
+            answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
         return answer, tag
     
 
