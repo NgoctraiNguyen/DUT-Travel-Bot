@@ -25,22 +25,29 @@ def chatting(request):
         question = request.POST.get('question')
         print(question)
         tag_post = request.POST.get('tag')
-        print(tag_post)
+
+
         # Xử lý kết quả
-        # answer, tag = bot.run(question)
-        answer = 'Đây là câu trả lời'
-        print(answer)
-        tag = "abc"
-        # print(tag)
+        # answer, tag = bot.run(question, last_tag= last_tag)
+        # # answer = 'Đây là câu trả lời'
+
         # Xử lý content
         if tag_post == '':
-            content = Content(name= f'{tag}', last_tag= 'hhphh', user = request.user)
-            content.save()
+            # content = Content(name= 'test2', last_tag= 'hhphh')
+            # content.save()
 
             #...
+            answer, tag = bot.run(question)
+            content = Content(name= tag, last_tag= tag)
+            content.save()
         else:
             content = Content.objects.get(id= tag_post)
  
+            last_tag= content.last_tag
+            answer, tag = bot.run(question, last_tag= last_tag)
+            content.last_tag = tag
+            content.save()
+
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content

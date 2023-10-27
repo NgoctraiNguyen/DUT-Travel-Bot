@@ -6,6 +6,8 @@ class Content(models.Model):
     name = models.CharField(max_length=128, null=True)
     last_tag = models.CharField(max_length=128, null=False)
     user = models.ForeignKey(User, models.CASCADE, null=True, default=None)
+
+
     def __str__(self) -> str:
         return str(self.name)
     
