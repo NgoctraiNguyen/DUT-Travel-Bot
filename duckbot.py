@@ -13,7 +13,7 @@ import json
 
 
 # CONFIG ARGUMENT
-NUMLABLES = 420
+NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
 FILE_TEXT_CLASSIFICTION = "data.pth"
 config = RobertaConfig.from_pretrained(
