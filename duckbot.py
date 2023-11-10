@@ -15,14 +15,14 @@ import json
 # CONFIG ARGUMENT
 NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
-FILE_TEXT_CLASSIFICTION = "data.pth"
+FILE_TEXT_CLASSIFICTION = "model_new.pth"
 config = RobertaConfig.from_pretrained(
     "transformers/PhoBERT_base_transformers/config.json", from_tf=False, num_labels = NUMLABLES, output_hidden_states=False,
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-# dataset_path = 'data/data_du_lich.json'
-dataset_path = 'data/intents.json'
+dataset_path = 'data/data_du_lich_1.json'
+# dataset_path = 'data/intents.json'
 
 device= 'cpu'
 
@@ -90,10 +90,12 @@ class DuckBot():
 
         probs = torch.softmax(outputs[0], dim=1)
         prob = probs[0][preds.item()]
-        if prob.item() > 0.75 :
-            tag = self.tags[preds.item()]
-        else:
-            tag= None
+        tag = self.tags[preds.item()]
+        print(f"Tỉ lệ: {prob.item()}")
+        # if prob.item() > 0.75 :
+        #     tag = self.tags[preds.item()]
+        # else:
+        #     tag= None
 
         return tag
 

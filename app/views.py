@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import *
-# from duckbot import DuckBot
+from duckbot import DuckBot
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth import login, logout
 
-# bot = DuckBot()
+bot = DuckBot()
 
 
 @login_required(login_url='login')
@@ -20,10 +20,10 @@ def home(request):
 
 def chatting(request):
     context= {}
+    user = request.user
     conversation = Conservation()
     if request.method == 'POST':
         question = request.POST.get('question')
-        print(question)
         tag_post = request.POST.get('tag')
 
 
@@ -38,10 +38,10 @@ def chatting(request):
 
             #...
             answer, tag = bot.run(question)
-            content = Content(name= tag, last_tag= tag)
+            content = Content(name= tag, last_tag= tag, user= user)
             content.save()
         else:
-            content = Content.objects.get(id= tag_post)
+            content = Content.objects.get(id= tag_post, user= user)
  
             last_tag= content.last_tag
             answer, tag = bot.run(question, last_tag= last_tag)
@@ -51,10 +51,6 @@ def chatting(request):
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content
-        conversation.user = request.user
-        print(question)
-        print(answer)
-        print(content)
         conversation.save()
 
     return redirect('/search?tag='+ str(content.id))

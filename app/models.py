@@ -16,6 +16,3 @@ class Conservation(models.Model):
     user_question = models.CharField(max_length=128, null= True)
     bot_answer = models.CharField(max_length=128, null= True)
     conten = models.ForeignKey(Content, on_delete= models.SET_NULL, blank= True, null= True)
-    
-
-
