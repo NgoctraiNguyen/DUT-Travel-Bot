@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Content(models.Model):
     name = models.CharField(max_length=128, null=True)
-    last_tag = models.CharField(max_length=128, null=False)
+    last_tag = models.CharField(max_length=128, null=True)
     user = models.ForeignKey(User, models.CASCADE, null=True, default=None)
 
 
