@@ -80,6 +80,18 @@ def extract_answer(inputs, outputs, tokenizer):
         answer_end = sum(sample_words_length[:torch.argmax(end_logit) + 1])
 
         if answer_start <= answer_end:
+            #get dot answer start:
+            for i in reversed(input_ids[:answer_start]):
+                if i == 5 or i == 2:
+                    break
+                answer_start -= 1
+            
+            #get dot answer end:
+            for i in input_ids[answer_end:]:
+                if i == 5:
+                    break
+                answer_end += 1
+                
             answer = tokenizer.convert_tokens_to_string(
                 tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end]))
             if answer == tokenizer.bos_token:

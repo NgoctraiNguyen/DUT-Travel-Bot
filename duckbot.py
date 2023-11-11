@@ -120,7 +120,7 @@ class DuckBot():
         if tag == None:
             answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
         else:
-            context = self.df.loc[self.df['tag'] == tag, 'context'].values
+            context = self.df.loc[self.df['tag'] == tag, 'context'].values[0]
             context = context[0]
             answer = self.get_answer(question, context)
             if answer == '':
@@ -129,8 +129,3 @@ class DuckBot():
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
         return answer, tag
-    
-
-        
-
-
