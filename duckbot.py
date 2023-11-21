@@ -15,13 +15,13 @@ import json
 # CONFIG ARGUMENT
 NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
-FILE_TEXT_CLASSIFICTION = "model_new.pth"
+FILE_TEXT_CLASSIFICTION = "data.pth"
 config = RobertaConfig.from_pretrained(
     "transformers/PhoBERT_base_transformers/config.json", from_tf=False, num_labels = NUMLABLES, output_hidden_states=False,
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-dataset_path = 'data/data_du_lich_1.json'
+dataset_path = 'data/intents_Nhan.json'
 # dataset_path = 'data/intents.json'
 
 device= 'cpu'
@@ -121,11 +121,10 @@ class DuckBot():
             answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
         else:
             context = self.df.loc[self.df['tag'] == tag, 'context'].values[0]
-            context = context[0]
-            answer = self.get_answer(question, context)
-            if answer == '':
-                context = context[1]
-                answer = self.get_answer(question, context)
+            for item in context:
+                answer = self.get_answer(question, item)
+                if answer != '':
+                    break
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
         return answer, tag
