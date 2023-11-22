@@ -1,0 +1,7 @@
+transformers/
+
+model_train/
+
+*.pth
+
+__pycache__/
