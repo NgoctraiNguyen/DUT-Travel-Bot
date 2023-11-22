@@ -30,11 +30,18 @@ device= 'cpu'
 def convert_data_to_df(json_data):
     tag= []
     context = []
+    linking = []
+    question = []
     for intent in json_data['intents']:
         tag.append(intent['tag'])
         context.append(intent['context'])
+        question.append(intent['question'])
+        try:
+            linking.append(intent['linking'])
+        except:
+            linking.append('')
     
-    return pd.DataFrame(list(zip(tag, context)), columns=['tag', 'context'])
+    return pd.DataFrame(list(zip(tag, context, linking, question)), columns=['tag', 'context', 'linking', 'question'])
 
 
 class DuckBot():
@@ -110,6 +117,14 @@ class DuckBot():
         answer = extract_answer(inputs, outputs, self.tokenizer_question_answering)
         return answer[0]['answer']
     
+    def create_more_info(self, tag):
+        link = self.df.loc[self.df['tag'] == tag, 'linking'].values[0]
+        question = self.df.loc[self.df['tag'] == tag, 'question'].values[0]
+        text = "<br>Nguồn: " + link
+        text += "Câu hỏi cùng nội dung: "
+        for qs in question[:3]:
+            text += qs
+        return text
 
     def run(self, question, last_tag= None):
         tag = self.get_tag(question)
@@ -125,6 +140,7 @@ class DuckBot():
                 answer = self.get_answer(question, item)
                 if answer != '':
                     break
+            answer += self.create_more_info(tag)
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
         return answer, tag
