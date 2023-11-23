@@ -1,8 +1,5 @@
 $(document).ready(function () {
     $('#post-form').submit(function (event) {
-        
-        const sentchatbtn = document.getElementById('submit');
-        const chatinput = document.getElementById('question');
         const bodychat = document.getElementById('body-chat');
         event.preventDefault(); 
 
@@ -27,7 +24,7 @@ $(document).ready(function () {
                 <img id="bot-image" src="${url_bot_image}" class="rounded-circle user_img_msg">
             </div>
             <div class="msg_cotainer">
-                <div id="loading"></div>
+                <div class="loading"></div>
             </div>
         `;
         chatdiv1.innerHTML= chatconten1;
@@ -41,7 +38,7 @@ $(document).ready(function () {
         var loadingText = ". . . .";
         var index = 0;
         var interval = setInterval(function() {
-          $('#loading').text(loadingText.substring(0, index));
+          $('.loading').last().text(loadingText.substring(0, index));
           index++;
           if (index > loadingText.length) {
               clearInterval(interval);
@@ -57,19 +54,15 @@ $(document).ready(function () {
                 'csrfmiddlewaretoken': csrfToken
             },
             success: function (response) {
-                // Khi nhận được phản hồi từ máy chủ
-                const div_message = document.getElementById('loading');
-                const loadingDiv = document.createElement('div');
-                loadingDiv.id = 'loading'+count;
-                // div_message.innerHTML = response.result;
-                loadingDiv.textContent = response.result;
-                div_message.appendChild(loadingDiv);
-                count+=1;
-                $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
+                const div_messages = document.querySelectorAll('.loading');
+                var div_message = div_messages[div_messages.length - 1];
+                console.log(div_message)
+                div_message.innerHTML = "";
                 clearInterval(interval);
+                div_message.innerHTML = response.result;
+                $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
             },
             error: function (xhr, errmsg, err) {
-                // Xử lý lỗi nếu có
                 console.log(xhr.status + ': ' + xhr.responseText);
             }
         });
