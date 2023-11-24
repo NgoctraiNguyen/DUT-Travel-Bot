@@ -226,3 +226,12 @@ background-color: rgba(0,0,0,0.2);
 margin-bottom: 15px !important;
 }
 }
+.msg_suggest {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #507179;
+    padding: 10px;
+    position: relative;
+}

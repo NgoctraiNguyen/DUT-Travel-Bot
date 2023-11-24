@@ -26,6 +26,7 @@ $(document).ready(function () {
             <div class="msg_cotainer">
                 <div class="loading"></div>
             </div>
+            <div
         `;
         chatdiv1.innerHTML= chatconten1;
         bodychat.appendChild(chatdiv1);
@@ -56,10 +57,21 @@ $(document).ready(function () {
             success: function (response) {
                 const div_messages = document.querySelectorAll('.loading');
                 var div_message = div_messages[div_messages.length - 1];
+                
                 console.log(div_message)
                 div_message.innerHTML = "";
+                var link_img_list = response.link_img;
+                var tmp = "";
+                if (link_img_list != "") {
+                        tmp += '<img src="' + link_img_list + '" alt="Image" width="50%" style="margin-right: 20px;">';
+                }
+                else{
+                    tmp = ""
+                }
                 clearInterval(interval);
-                div_message.innerHTML = response.result;
+                div_message.innerHTML = response.answer +" <br> " + tmp;                   
+
+                console.log(div_message)
                 $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
             },
             error: function (xhr, errmsg, err) {

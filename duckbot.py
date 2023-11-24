@@ -21,7 +21,7 @@ config = RobertaConfig.from_pretrained(
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-dataset_path = 'data/intents_Nhan.json'
+dataset_path = 'data/intents_gia.json'
 # dataset_path = 'data/intents.json'
 
 device= 'cpu'
@@ -30,11 +30,18 @@ device= 'cpu'
 def convert_data_to_df(json_data):
     tag= []
     context = []
+    linking = []
+    question = []
     for intent in json_data['intents']:
         tag.append(intent['tag'])
         context.append(intent['context'])
+        question.append(intent['question'])
+        try:
+            linking.append(intent['linking'])
+        except:
+            linking.append('')
     
-    return pd.DataFrame(list(zip(tag, context)), columns=['tag', 'context'])
+    return pd.DataFrame(list(zip(tag, context, linking, question)), columns=['tag', 'context', 'linking', 'question'])
 
 
 class DuckBot():
@@ -109,22 +116,40 @@ class DuckBot():
         outputs = self.model_question_anwering(**inputs_ids)
         answer = extract_answer(inputs, outputs, self.tokenizer_question_answering)
         return answer[0]['answer']
-    
+
+    def create_more_info(self, tag):
+        question = self.df.loc[self.df['tag'] == tag, 'question'].values[0]
+        print("question ",question)
+        link = self.df.loc[self.df['tag'] == tag, 'linking'].values[0]
+        print("Link: ",link)
+        img_text = str(link) 
+        suggest_text = str(question[:3])
+        return img_text, suggest_text  
 
     def run(self, question, last_tag= None):
         tag = self.get_tag(question)
-
+        print("tag ", tag)
         if tag == None:
             tag = last_tag
+            img_text = ""
+            print(f'tag = null')
+            img_text, suggest_text = self.create_more_info(tag)
         
         if tag == None:
             answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
+            print(f'Xin lỗi tôi không hiểu câu hỏi của bạn!')
+            img_text = ""
         else:
             context = self.df.loc[self.df['tag'] == tag, 'context'].values[0]
+            img_text, suggest_text = self.create_more_info(tag)
+            print(f'dang tim cau context {context}')
             for item in context:
                 answer = self.get_answer(question, item)
+                print(f'answer : {answer}')
                 if answer != '':
                     break
+                
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
-        return answer, tag
+            img_text = ""
+        return answer, tag, img_text, suggest_text

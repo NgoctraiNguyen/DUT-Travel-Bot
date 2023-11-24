@@ -36,31 +36,28 @@ def chatting(request):
         question = request.POST.get('question')
         tag_post = request.POST.get('tag')
 
-
+        print("oke")
         # Xử lý kết quả
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
 
         # Xử lý content
         if tag_post == '':
-            # content = Content(name= 'test2', last_tag= 'hhphh')
-            # content.save()
-
-            #...
-            answer, tag = bot.run(question)
+            answer, tag, img_text, suggest_text = bot.run(question)
             content = Content(name= tag, last_tag= tag, user= user)
             content.save()
         else:
             content = Content.objects.get(id= tag_post, user= user)
  
             last_tag= content.last_tag
-            answer, tag = bot.run(question, last_tag= last_tag)
+            answer, tag, img_text, suggest_text = bot.run(question, last_tag= last_tag)
             content.last_tag = tag
             content.save()
-
+        print(f'img_text {img_text}')
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content
+        conversation.link_img = img_text
         conversation.save()
 
     return redirect('/search?tag='+ str(content.id))
@@ -82,34 +79,43 @@ def predict(request):
             # content.save()
 
             #...
-            answer, tag = bot.run(question)
+            answer, tag, img_text, suggest_text = bot.run(question)
             content = Content(name= tag, last_tag= tag, user= user)
             content.save()
         else:
             content = Content.objects.get(id= tag_post, user= user)
  
             last_tag= content.last_tag
-            answer, tag = bot.run(question, last_tag= last_tag)
+            answer, tag, img_text, suggest_text = bot.run(question, last_tag= last_tag)
             content.last_tag = tag
             content.save()
 
+        if (img_text):
+            img_text_list = img_text.split("\n")
+            link_img =img_text_list[0]
+        else:
+            link_img = ""
+         
+        print("link_img ", link_img)   
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content
+        conversation.link_img = link_img
         conversation.save()
 
     return JsonResponse(
-        {'result': answer}
+        {'answer': answer,
+         'link_img': link_img,
+         'suggest_text': suggest_text
+         }
     )
 
 def search(request):
     conten = request.GET.get('tag')
     conten = Content.objects.get(id= conten)
     conversation = Conservation.objects.filter(conten= conten)
-
     user = request.user
     contents = Content.objects.filter(user=user)
-    # contents = Content.objects.all()
     
     context= {'conv': conversation, 'cont': conten, 'contents': contents}
     return render(request, 'demo.html', context)

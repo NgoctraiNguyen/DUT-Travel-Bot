@@ -34,6 +34,8 @@
 							</div>
 						</div>
 					</div>
+
+					
 					<div class="card-body contacts_body">
 						<ui class="contacts">
 						<li>
@@ -64,6 +66,8 @@
 						{% endfor %}
 						</ui>
 					</div>
+
+
 				</div></div>
 				
 				<div class="col-md-8 col-xl-9 chat">
@@ -106,7 +110,9 @@
 									</div>
 									<div class="msg_cotainer">
 										{{chat.bot_answer}}
-										{% comment %} <span class="msg_time">8:40 AM, Today</span> {% endcomment %}
+										{% if chat.link_img != "['']" %}
+												<br><img src="{{ chat.link_img }}" alt="Image" width="50%" style="margin-right: 20px;">
+										{% endif %}
 									</div>
 								</div>
 							{% endfor %}
