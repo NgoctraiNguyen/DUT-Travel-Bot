@@ -26,6 +26,9 @@ $(document).ready(function () {
             <div class="msg_cotainer">
                 <div class="loading"></div>
             </div>
+            <div class="msg_suggest"> 
+                <div> </div>
+            </div>
             <div
         `;
         chatdiv1.innerHTML= chatconten1;
@@ -34,9 +37,7 @@ $(document).ready(function () {
         inputchat.value="";
         $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
 
-        const count = 0;
-
-        var loadingText = ". . . .";
+        var loadingText = ". . . . . . . .";
         var index = 0;
         var interval = setInterval(function() {
           $('.loading').last().text(loadingText.substring(0, index));
@@ -62,16 +63,29 @@ $(document).ready(function () {
                 div_message.innerHTML = "";
                 var link_img_list = response.link_img;
                 var tmp = "";
-                if (link_img_list != "") {
+                if (link_img_list != "" && link_img_list != "None" && link_img_list != "['']") {
                         tmp += '<img src="' + link_img_list + '" alt="Image" width="50%" style="margin-right: 20px;">';
-                }
-                else{
+                }else {
                     tmp = ""
                 }
                 clearInterval(interval);
-                div_message.innerHTML = response.answer +" <br> " + tmp;                   
-
-                console.log(div_message)
+                const words = response.answer.split(' ');
+                
+                function displayWordsSequentially(index) {
+                    if (index < words.length) {
+                        div_message.innerHTML += words[index] + ' '; // Thêm từ vào div_message
+                        index++; // Tăng chỉ số để hiển thị từ tiếp theo trong mảng
+                
+                        setTimeout(() => {
+                            displayWordsSequentially(index); // Gọi lại hàm với từ tiếp theo sau một khoảng thời gian
+                        }, 100); // Thời gian delay giữa các từ (ở đây là 1 giây)
+                    }else{
+                        if (tmp != "['']") {
+                            div_message.innerHTML += " <br> " + tmp; 
+                        }
+                    }
+                }
+                displayWordsSequentially(0)
                 $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
             },
             error: function (xhr, errmsg, err) {
