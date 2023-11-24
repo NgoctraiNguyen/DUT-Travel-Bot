@@ -16,9 +16,14 @@ $(document).ready(function () {
         chatdiv.innerHTML= chatconten;
         bodychat.appendChild(chatdiv);
 
+
+
         const chatdiv1 = document.createElement('div');
         const url_bot_image = document.getElementById('bot-image').src;
         chatdiv1.classList.add('d-flex', 'justify-content-start', 'mb-4');
+
+
+
         let chatconten1 = `
             <div class="img_cont_msg">
                 <img id="bot-image" src="${url_bot_image}" class="rounded-circle user_img_msg">
@@ -31,6 +36,13 @@ $(document).ready(function () {
             </div>
             <div
         `;
+
+
+        let suggest_questions=`
+            <div class="suggest_questions">
+            </div>
+        `
+        
         chatdiv1.innerHTML= chatconten1;
         bodychat.appendChild(chatdiv1);
         var inputchat=document.querySelector("#question");
@@ -47,6 +59,14 @@ $(document).ready(function () {
           }
         }, 300);
 
+
+        const suggest_div = document.createElement('div');
+        let suggest_question_item=`
+        <div class="suggest_questions"></div>` 
+        suggest_div.innerHTML=suggest_question_item;
+
+        bodychat.appendChild(suggest_div);
+
         $.ajax({
             type: 'POST',
             url: '/predict/', 
@@ -57,20 +77,45 @@ $(document).ready(function () {
             },
             success: function (response) {
                 const div_messages = document.querySelectorAll('.loading');
+                
+
                 var div_message = div_messages[div_messages.length - 1];
                 
-                console.log(div_message)
+                
                 div_message.innerHTML = "";
                 var link_img_list = response.link_img;
+                
                 var tmp = "";
+
                 if (link_img_list != "" && link_img_list != "None" && link_img_list != "['']") {
                         tmp += '<img src="' + link_img_list + '" alt="Image" width="50%" style="margin-right: 20px;">';
                 }else {
                     tmp = ""
                 }
-                clearInterval(interval);
+
+                
                 const words = response.answer.split(' ');
                 
+                var suggest_question_div=document.querySelector(".suggest_questions");
+                console.log(suggest_question_div)
+                var suggest=response.suggest_text;
+                var tmp_suggest="";
+                suggest = suggest.slice(1, -1);
+
+                // Chia chuỗi thành mảng dựa trên dấu ','
+                var suggest_question = suggest.split(", ");
+                console.log( typeof  suggest_question)
+                console.log(   suggest_question)
+                if (Array.isArray(suggest_question) && suggest_question.length > 0) {
+                    for (var i = 0; i < suggest_question.length; i++) {
+                        tmp_suggest += '<div class="suggest_questions_item">' + suggest_question[i] + '</div>';
+                    }
+                } else {
+                    tmp_suggest = "s";
+                }
+                console.log(tmp_suggest)
+                
+                clearInterval(interval);
                 function displayWordsSequentially(index) {
                     if (index < words.length) {
                         div_message.innerHTML += words[index] + ' '; // Thêm từ vào div_message
@@ -83,14 +128,23 @@ $(document).ready(function () {
                         if (tmp != "['']") {
                             div_message.innerHTML += " <br> " + tmp; 
                         }
+                        if(tmp_suggest!=""){
+                            suggest_question_div.innerHTML+="<br>"+tmp_suggest;
+                        }
                     }
                 }
                 displayWordsSequentially(0)
+
+
                 $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
             },
             error: function (xhr, errmsg, err) {
                 console.log(xhr.status + ': ' + xhr.responseText);
             }
         });
+
+
+
+
     });
 });
