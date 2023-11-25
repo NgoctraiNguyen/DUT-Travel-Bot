@@ -57,12 +57,18 @@ def chatting(request):
             content.last_tag = tag
             content.save()
         print(f"img_text {img_text}")
+        if img_text:
+            img_text_list = img_text.split("\n")
+            link_img = img_text_list[0]
+        else:
+            link_img = ""
+
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content
-        conversation.link_img = img_text
+        conversation.link_img = link_img
         conversation.save()
-
+    request.session["suggest_text_first"] = suggest_text
     return redirect("/search?tag=" + str(content.id))
 
 
@@ -118,8 +124,13 @@ def search(request):
     conversation = Conservation.objects.filter(conten=conten)
     user = request.user
     contents = Content.objects.filter(user=user)
-
-    context = {"conv": conversation, "cont": conten, "contents": contents}
+    suggest_text_first = request.session.get("suggest_text_first", None)
+    context = {
+        "conv": conversation,
+        "cont": conten,
+        "contents": contents,
+        "suggest_text_first": suggest_text_first,
+    }
     return render(request, "demo.html", context)
 
 
