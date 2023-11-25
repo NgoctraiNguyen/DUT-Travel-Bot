@@ -15,3 +15,4 @@ class Conservation(models.Model):
     bot_answer = models.TextField(null=True,blank=True)
     conten = models.ForeignKey(Content, on_delete= models.SET_NULL, blank= True, null= True)
     link_img = models.TextField(default="", blank=True)
+    suggest_text = models.TextField(default="", blank=True)

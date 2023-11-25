@@ -111,9 +111,19 @@
 										{% if chat.link_img != "['']" and chat.link_img != "None" and chat.link_img != ""%}
 												<br><img src="{{ chat.link_img }}" alt="Image" width="50%" style="margin-right: 20px;">
 										{% endif %}
+										<br> 
 									</div>
 								</div>
 							{% endfor %}
+							{% if conv %}
+								{% if request.session.suggest_text_first is not None %}
+								<div class="suggest_questions">
+									{% for item in request.session.suggest_text_first %}
+										<button class="suggest_questions_item" value="{{ item }}">{{ item }}</button> 
+									{% endfor %}
+									</div>
+								{% endif %}
+							{% endif %}
 						</div>
 						{% if conv %}
 						<form id="post-form">

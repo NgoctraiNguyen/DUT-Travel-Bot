@@ -26,11 +26,9 @@ $(document).ready(function () {
         bodychat.appendChild(chatdiv);
 
 
-
         const chatdiv1 = document.createElement('div');
         const url_bot_image = document.getElementById('bot-image').src;
         chatdiv1.classList.add('d-flex', 'justify-content-start', 'mb-4');
-
 
 
         let chatconten1 = `
@@ -46,12 +44,6 @@ $(document).ready(function () {
             <div
         `;
 
-
-        let suggest_questions=`
-            <div class="suggest_questions">
-            </div>
-        `
-        
         chatdiv1.innerHTML= chatconten1;
         bodychat.appendChild(chatdiv1);
         var inputchat=document.querySelector("#question");
@@ -69,10 +61,6 @@ $(document).ready(function () {
         }, 300);
 
 
-
-
-        
-
         $.ajax({
             type: 'POST',
             url: '/predict/', 
@@ -83,10 +71,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 const div_messages = document.querySelectorAll('.loading');
-                
-
                 var div_message = div_messages[div_messages.length - 1];
-                
                 
                 div_message.innerHTML = "";
                 var link_img_list = response.link_img;
@@ -98,7 +83,6 @@ $(document).ready(function () {
                 }else {
                     tmp = ""
                 }
-
                 
                 const words = response.answer.split(' ');
 
@@ -120,12 +104,11 @@ $(document).ready(function () {
                 console.log(   suggest_question)
                 if (Array.isArray(suggest_question) && suggest_question.length > 0) {
                     for (var i = 0; i < suggest_question.length; i++) {
-                        tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button> <br>';
+                        tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button>';
                     }
                 } else {
                     tmp_suggest = "s";
                 }
-                
                 
                 clearInterval(interval);
                 function displayWordsSequentially(index) {
@@ -148,30 +131,20 @@ $(document).ready(function () {
                 }
                 displayWordsSequentially(0)
 
-
                 $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
             },
             error: function (xhr, errmsg, err) {
                 console.log(xhr.status + ': ' + xhr.responseText);
             }
         });
-
-
-
-
     });
 });
 
 $(document).ready(function () {
     // Xử lý sự kiện click trên các button suggest_questions_item
 
-    
-
-
     $(document).on("click", ".suggest_questions_item", function (event) {
       event.preventDefault();
-
-        
       
       // Lấy giá trị của button được nhấn
       var selectedValue = $(this).val();
