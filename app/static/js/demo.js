@@ -3,6 +3,15 @@ $(document).ready(function () {
         const bodychat = document.getElementById('body-chat');
         event.preventDefault(); 
 
+
+        const suggest_question_div_lasts = $('.suggest_questions');
+        
+        if (suggest_question_div_lasts.length > 0) {
+            suggest_question_div_lasts.each(function () {
+            $(this).remove();
+            });
+        }
+
         var question = $('#question').val();
         var tag = $('#tag').val();
         var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
@@ -60,12 +69,9 @@ $(document).ready(function () {
         }, 300);
 
 
-        const suggest_div = document.createElement('div');
-        let suggest_question_item=`
-        <div class="suggest_questions"></div>` 
-        suggest_div.innerHTML=suggest_question_item;
 
-        bodychat.appendChild(suggest_div);
+
+        
 
         $.ajax({
             type: 'POST',
@@ -95,7 +101,13 @@ $(document).ready(function () {
 
                 
                 const words = response.answer.split(' ');
-                
+
+                const suggest_div = document.createElement('div');
+                let suggest_question_item=`
+                <div class="suggest_questions"></div>` 
+                suggest_div.innerHTML=suggest_question_item;
+                bodychat.appendChild(suggest_div);
+
                 var suggest_question_div=document.querySelector(".suggest_questions");
                 console.log(suggest_question_div)
                 var suggest=response.suggest_text;
@@ -113,7 +125,7 @@ $(document).ready(function () {
                 } else {
                     tmp_suggest = "s";
                 }
-                console.log(tmp_suggest)
+                
                 
                 clearInterval(interval);
                 function displayWordsSequentially(index) {
@@ -129,7 +141,8 @@ $(document).ready(function () {
                             div_message.innerHTML += " <br> " + tmp; 
                         }
                         if(tmp_suggest!=""){
-                            div_message.innerHTML+="<br>"+tmp_suggest;
+                            suggest_question_div.innerHTML+="<br>"+tmp_suggest;
+
                         }
                     }
                 }
@@ -151,11 +164,25 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     // Xử lý sự kiện click trên các button suggest_questions_item
+
+    
+
+
     $(document).on("click", ".suggest_questions_item", function (event) {
       event.preventDefault();
-  
+
+        
+      
       // Lấy giá trị của button được nhấn
       var selectedValue = $(this).val();
+
+      const suggest_question_div_last = $('.suggest_questions');
+      console.log(suggest_question_div_last);
+      if (suggest_question_div_last.length > 0) {
+        suggest_question_div_last.each(function () {
+          $(this).remove();
+        });
+      }
   
       // Gán giá trị vào trường input #question
       $('#question').val(selectedValue);
