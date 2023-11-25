@@ -123,7 +123,7 @@ class DuckBot():
         link = self.df.loc[self.df['tag'] == tag, 'linking'].values[0]
         print("Link: ",link)
         img_text = str(link) 
-        suggest_text = str(question[:3])
+        suggest_text = str(question)
         return img_text, suggest_text  
 
     def run(self, question, last_tag= None):

@@ -102,14 +102,21 @@ $(document).ready(function () {
                 var suggest_question = suggest.split(", ");
                 console.log( typeof  suggest_question)
                 console.log(   suggest_question)
+
                 if (Array.isArray(suggest_question) && suggest_question.length > 0) {
-                    for (var i = 0; i < suggest_question.length; i++) {
-                        tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button>';
+                    // Xáo trộn thứ tự trong mảng
+                    suggest_question.sort(() => Math.random() - 0.5);
+                  
+                    var tmp_suggest = '';
+                    var numElements = suggest_question.length >= 3 ? 3 : suggest_question.length; // Số phần tử cần lấy (tối đa 3 hoặc độ dài của mảng)
+                    
+                    for (var i = 0; i < numElements; i++) {
+                      tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button>';
                     }
-                } else {
+                  } else {
                     tmp_suggest = "s";
-                }
-                
+                  }
+
                 clearInterval(interval);
                 function displayWordsSequentially(index) {
                     if (index < words.length) {

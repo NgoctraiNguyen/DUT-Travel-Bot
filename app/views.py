@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import *
-
+import random
 from duckbot import DuckBot
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
@@ -65,7 +65,14 @@ def chatting(request):
         conversation.save()
         print(suggest_text)
         suggest_text = ast.literal_eval(suggest_text)
-    request.session["suggest_text_first"] = suggest_text
+        random.shuffle(suggest_text)
+        if (len(suggest_text) >= 3):
+            suggest_text1 = suggest_text[:3]
+        else:
+            suggest_text1 = suggest_text
+        # print("len : ",len(suggest_text))
+        # print("noi dung suggest_text: ", suggest_text1)
+    request.session["suggest_text_first"] = suggest_text1
     return redirect("/search?tag=" + str(content.id))
 
 def predict(request):
@@ -122,7 +129,14 @@ def search(request):
     conversation_last = conversation.last()
     suggest_text = conversation_last.suggest_text
     suggest_text = ast.literal_eval(suggest_text)
-    request.session['suggest_text_first'] = suggest_text
+    random.shuffle(suggest_text)
+    if (len(suggest_text) >= 3):
+        suggest_text1 = suggest_text[:3]
+    else:
+        suggest_text1 = suggest_text
+    print("len : ",len(suggest_text1))
+    request.session['suggest_text_first'] = suggest_text1
+    
     context = {
         "conv": conversation,
         "cont": conten,
