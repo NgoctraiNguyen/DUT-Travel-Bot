@@ -37,7 +37,7 @@ def chatting(request):
         # Xử lý kết quả
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
-
+        print("người dùng hỏi :  ",question)
         # Xử lý content
         if tag_post == "":
             answer, tag, img_text, suggest_text = bot.run(question)
