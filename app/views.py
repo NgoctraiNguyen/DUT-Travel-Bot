@@ -38,8 +38,21 @@ def chatting(request):
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
         print("người dùng hỏi :  ",question)
+        list_chao_hoi = ['xin chào', 'chào bạn', 'hello bạn','chào bot']
+        contains_chao_hoi = any(chao_hoi in question for chao_hoi in list_chao_hoi)
+        list_answer = ["Xin chào! Tôi là chatbot Đà Nẵng. Bạn cần giúp gì hôm nay?","Chào bạn! Đây là chatbot Đà Nẵng. Có điều gì tôi có thể hỗ trợ bạn?","Chào bạn! Tôi là đại diện ảo cho Đà Nẵng. Cần tôi giúp gì không?","Xin chào! Tôi là chatbot của Đà Nẵng. Bạn muốn biết thông tin gì về thành phố này?"]
+        random.shuffle(list_answer)
+        
+        if contains_chao_hoi:
+            answer = random.choice(list_answer)
+            tag = "Chào hỏi"
+            content = Content(name=tag, last_tag=tag, user=user)
+            content.save()
+            img_text = ""
+            suggest_text = '["Giới thiệu về thành phố đà nẵng", "Giới thiệu về Đà Nẵng những thắng cảnh nổi tiếng", "Giới thiệu những bãi biển đẹp ở Đà Nẵng?"]'
+            
         # Xử lý content
-        if tag_post == "":
+        elif tag_post == "":
             answer, tag, img_text, suggest_text = bot.run(question)
             content = Content(name=tag, last_tag=tag, user=user)
             content.save()
@@ -51,7 +64,10 @@ def chatting(request):
             content.last_tag = tag
             content.save()
         print(f"img_text {img_text}")
-        if img_text:
+        if '\n' not in  img_text :
+            print("img_text ", img_text)
+            link_img = img_text
+        elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
         else:
@@ -81,13 +97,26 @@ def predict(request):
     if request.method == "POST":
         question = request.POST.get("question")
         tag_post = request.POST.get("tag")
-
+        
+        list_chao_hoi = ['xin chào', 'chào bạn', 'hello bạn','chào bot']
+        contains_chao_hoi = any(chao_hoi in question for chao_hoi in list_chao_hoi)
+        list_answer = ["Xin chào! Tôi là chatbot Đà Nẵng. Bạn cần giúp gì hôm nay?","Chào bạn! Đây là chatbot Đà Nẵng. Có điều gì tôi có thể hỗ trợ bạn?","Chào bạn! Tôi là đại diện ảo cho Đà Nẵng. Cần tôi giúp gì không?","Xin chào! Tôi là chatbot của Đà Nẵng. Bạn muốn biết thông tin gì về thành phố này?"]
+        random.shuffle(list_answer)
+        
+        if contains_chao_hoi:
+            answer = random.choice(list_answer)
+            tag = "Chào hỏi"
+            content = Content(name=tag, last_tag=tag, user=user)
+            content.save()
+            img_text = ""
+            suggest_text = '["Giới thiệu về thành phố đà nẵng", "Giới thiệu về Đà Nẵng những thắng cảnh nổi tiếng", "Giới thiệu những bãi biển đẹp ở Đà Nẵng?"]'
+            
         # Xử lý kết quả
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
 
         # Xử lý content
-        if tag_post == "":
+        elif tag_post == "":
             # content = Content(name= 'test2', last_tag= 'hhphh')
             # content.save()
             # ...
@@ -101,8 +130,11 @@ def predict(request):
             answer, tag, img_text, suggest_text = bot.run(question, last_tag=last_tag)
             content.last_tag = tag
             content.save()
-
-        if img_text:
+        print("len (img_text)")
+        if '\n' not in  img_text:
+            print("img_text ", img_text)
+            link_img = img_text
+        elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
         else:

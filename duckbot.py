@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import nltk
 import json
-
+import random
 
 # CONFIG ARGUMENT
 NUMLABLES = 2000
@@ -93,16 +93,25 @@ class DuckBot():
             logits = outputs[0]
             logits = logits.detach().cpu().numpy()
 
+        print(f" logic {logits}")
         preds = np.argmax(logits, axis = 1)
-
+        print(f"preds {preds}")
         probs = torch.softmax(outputs[0], dim=1)
+        probs = probs.numpy()
+        print(f"probs ",probs)  
+        print(f"probs {probs[0]}")
         prob = probs[0][preds.item()]
+        print(f"prob {prob}")
         tag = self.tags[preds.item()]
+        print(f"tag {tag}") 
         print(f"Tỉ lệ: {prob.item()}")
-        # if prob.item() > 0.75 :
-        #     tag = self.tags[preds.item()]
-        # else:
-        #     tag= None
+        variance_value = np.var(probs[0])
+
+        print(f"variance_value ", variance_value)
+        if variance_value > 0.00001 or prob.item() > 0.02:
+            tag = self.tags[preds.item()]
+        else:
+            tag= None
 
         return tag
 
@@ -127,6 +136,14 @@ class DuckBot():
         return img_text, suggest_text  
 
     def run(self, question, last_tag= None):
+        list_dia_chi = [
+    "Xin lỗi, có thể cho biết địa chỉ cụ thể của bạn được không?",
+    "Để hỗ trợ bạn tốt hơn, vui lòng cung cấp địa chỉ chi tiết.",
+    "Bạn có thể chia sẻ địa chỉ chính xác để chúng tôi có thể giúp đỡ?",
+    "Để tôi có thể cung cấp thông tin chính xác, bạn có thể nói rõ địa chỉ được không?"
+]
+        random.shuffle(list_dia_chi)
+        
         tag = self.get_tag(question)
         print("tag ", tag)
         if tag == None:
@@ -136,7 +153,8 @@ class DuckBot():
             img_text, suggest_text = self.create_more_info(tag)
         
         if tag == None:
-            answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
+            answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!, bạn có thể nói rõ địa chỉ được không?"
+            answer = random.choice(list_dia_chi)
             print(f'Xin lỗi tôi không hiểu câu hỏi của bạn!')
             img_text = ""
         else:
@@ -151,5 +169,7 @@ class DuckBot():
                 
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
+            answer = random.choice(list_dia_chi)
             img_text = ""
+        print("answer in run: ", answer)
         return answer, tag, img_text, suggest_text

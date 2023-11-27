@@ -94,7 +94,7 @@ def extract_answer(inputs, outputs, tokenizer):
                 
                 # get dot answer end:
                 for i in input_ids[answer_end:]:
-                    if i == 5:
+                    if i == 2819:
                         break
                     answer_end += 1
 
