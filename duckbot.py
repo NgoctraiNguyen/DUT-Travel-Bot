@@ -15,13 +15,13 @@ import random
 # CONFIG ARGUMENT
 NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
-FILE_TEXT_CLASSIFICTION = "model_train/data.pth"
+FILE_TEXT_CLASSIFICTION = "model_train/data_29_4.pth"
 config = RobertaConfig.from_pretrained(
     "transformers/PhoBERT_base_transformers/config.json", from_tf=False, num_labels = NUMLABLES, output_hidden_states=False,
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-dataset_path = 'data/intents_gia.json'
+dataset_path = 'data/data_new.json'
 # dataset_path = 'data/intents.json'
 
 device= 'cpu'
@@ -93,22 +93,16 @@ class DuckBot():
             logits = outputs[0]
             logits = logits.detach().cpu().numpy()
 
-        print(f" logic {logits}")
-        preds = np.argmax(logits, axis = 1)
-        print(f"preds {preds}")
         probs = torch.softmax(outputs[0], dim=1)
-        probs = probs.numpy()
-        print(f"probs ",probs)  
-        print(f"probs {probs[0]}")
-        prob = probs[0][preds.item()]
-        print(f"prob {prob}")
+        probs= probs.detach().cpu().numpy()
+        
+        preds = np.argmax(logits, axis = 1)
+        print(f"probs ",probs[0])  
+        print(f"probs {probs[0][preds.item()]}")
         tag = self.tags[preds.item()]
         print(f"tag {tag}") 
-        print(f"Tỉ lệ: {prob.item()}")
-        variance_value = np.var(probs[0])
-
-        print(f"variance_value ", variance_value)
-        if variance_value > 0.00001 or prob.item() > 0.02:
+        
+        if probs[0][preds.item()] > 0.09:
             tag = self.tags[preds.item()]
         else:
             tag= None
