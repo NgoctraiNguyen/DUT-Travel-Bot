@@ -111,7 +111,7 @@ $(document).ready(function () {
                     var numElements = suggest_question.length >= 3 ? 3 : suggest_question.length; // Số phần tử cần lấy (tối đa 3 hoặc độ dài của mảng)
                     
                     for (var i = 0; i < numElements; i++) {
-                      tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button>';
+                      tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i].slice(1,-1) + '">' + suggest_question[i].slice(1,-1) + '</button>';
                     }
                   } else {
                     tmp_suggest = "s";

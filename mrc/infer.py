@@ -100,7 +100,7 @@ def extract_answer(inputs, outputs, tokenizer):
 
                 
                 answer = tokenizer.convert_tokens_to_string(
-                    tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end+1]))
+                    tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end]))
 
         else:
             answer = ''
