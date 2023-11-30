@@ -26,10 +26,10 @@ SECRET_KEY = 'django-insecure-1l+2xt-50czk@5z8yomkzpv@md#p2r4g87h+)lpx@)9-p)1!sb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','622a-1-54-6-193.ngrok-free.app','localhost']
 
+CSRF_TRUSTED_ORIGINS = ['https://622a-1-54-6-193.ngrok-free.app','https://*.127.0.0.1']
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'chatbot.urls'
@@ -127,3 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'app/static')
 ]
+

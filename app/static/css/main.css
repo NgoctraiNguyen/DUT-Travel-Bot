@@ -221,8 +221,30 @@ padding-right: 10px;
 cursor: pointer;
 background-color: rgba(0,0,0,0.2);
 }
+.suggest_questions_item{
+    background-color: #fff;
+    border: 1px solid #e9e0e8;
+    border-radius: 16.5px;
+    width: fit-content;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+}
+.suggest_questions{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
 @media(max-width: 576px){
 .contacts_card{
 margin-bottom: 15px !important;
 }
+}
+.msg_suggest {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: #507179;
+    padding: 10px;
+    position: relative;
 }
