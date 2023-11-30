@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import *
-from duckbot import DuckBot
+# from duckbot import DuckBot
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib.auth import login, logout
 
-bot = DuckBot()
+# bot = DuckBot()
 
 
 @login_required(login_url='login')
