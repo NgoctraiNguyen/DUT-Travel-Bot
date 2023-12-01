@@ -85,7 +85,8 @@ def extract_answer(inputs, outputs, tokenizer):
             if answer == tokenizer.bos_token:
                 answer = ''
             else:
-                input_ids = [x for x in input_ids if x != 6]
+                print(tokenizer.convert_tokens_to_string(
+                    tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end])))
                 # get dot answer start:
                 for i in reversed(input_ids[:answer_start]):
                     if i == 2819 or i == 2:
@@ -94,13 +95,15 @@ def extract_answer(inputs, outputs, tokenizer):
                 
                 # get dot answer end:
                 for i in input_ids[answer_end:]:
+                    print(i)
                     if i == 2819 :
                         break
                     answer_end += 1
 
-                
+                tmp_ans = input_ids[answer_start:answer_end]
+                tmp_ans = [x for x in tmp_ans if x != 6]
                 answer = tokenizer.convert_tokens_to_string(
-                    tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end-2]))
+                    tokenizer.convert_ids_to_tokens(tmp_ans))
 
         else:
             answer = ''

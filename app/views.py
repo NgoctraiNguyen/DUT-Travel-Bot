@@ -63,9 +63,7 @@ def chatting(request):
             answer, tag, img_text, suggest_text = bot.run(question, last_tag=last_tag)
             content.last_tag = tag
             content.save()
-        print(f"img_text {img_text}")
         if '\n' not in  img_text :
-            print("img_text ", img_text)
             link_img = img_text
         elif img_text:
             img_text_list = img_text.split("\n")
@@ -130,7 +128,6 @@ def predict(request):
             answer, tag, img_text, suggest_text = bot.run(question, last_tag=last_tag)
             content.last_tag = tag
             content.save()
-        print("len (img_text)")
 
 
         if isinstance(img_text, list):
@@ -138,21 +135,18 @@ def predict(request):
         elif isinstance(img_text,str):
             if '[' in img_text:
                 if "\n" not in img_text:
-                    print("img_text ", img_text)
                     link_img = img_text[2:-2]
                 else :
                     img_text_list = img_text.split("\n")
                     link_img = img_text_list[0]
             else:
                 if "\n" not in img_text:
-                    print("img_text ", img_text)
                     link_img = img_text[2:-2]
                 else :
                     img_text_list = img_text.split("\n")
                     link_img = img_text_list[0]
                         
 
-        print("link_img ", link_img)
         conversation.user_question = question
         conversation.bot_answer = answer
         conversation.conten = content
