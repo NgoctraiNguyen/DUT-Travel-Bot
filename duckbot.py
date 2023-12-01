@@ -15,13 +15,13 @@ import random
 # CONFIG ARGUMENT
 NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
-FILE_TEXT_CLASSIFICTION = "model_train/data.pth"
+FILE_TEXT_CLASSIFICTION = "data_29_4.pth"
 config = RobertaConfig.from_pretrained(
     "transformers/PhoBERT_base_transformers/config.json", from_tf=False, num_labels = NUMLABLES, output_hidden_states=False,
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-dataset_path = 'data/intents_gia.json'
+dataset_path = 'data/data_new_copy.json'
 # dataset_path = 'data/intents.json'
 
 device= 'cpu'
