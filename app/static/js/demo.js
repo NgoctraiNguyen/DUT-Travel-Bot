@@ -107,7 +107,7 @@ $(document).ready(function () {
                         let question_temp = suggest_question[i];
                         tmp_suggest += `
                           <div class="suggest_questions d-flex justify-content-end chat-block">
-                            <button class="suggest_questions_item" value="${question_temp}">${question_temp}</button>
+                            <button class="suggest_questions_item" value="${question_temp.slice(1,-1)}">${question_temp.slice(1,-1)}</button>
                           </div>
                         `;
                       }

@@ -87,19 +87,20 @@ def extract_answer(inputs, outputs, tokenizer):
             else:
                 # get dot answer start:
                 for i in reversed(input_ids[:answer_start]):
-                    if i == 5 or i == 2:
+                    if i == 2819 or i == 2:
                         break
                     answer_start -= 1
                 
                 # get dot answer end:
                 for i in input_ids[answer_end:]:
-                    if i == 5:
+                    if i == 2819:
                         break
                     answer_end += 1
 
-                input_ids = [x for x in input_ids if x != 6]
+                tmp_ans = input_ids[answer_start:answer_end]
+                tmp_ans = [x for x in tmp_ans if x != 6]
                 answer = tokenizer.convert_tokens_to_string(
-                    tokenizer.convert_ids_to_tokens(input_ids[answer_start:answer_end+1]))
+                    tokenizer.convert_ids_to_tokens(tmp_ans))
 
         else:
             answer = ''

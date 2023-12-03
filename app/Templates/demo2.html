@@ -43,7 +43,7 @@
                     <div class="img-user">
                         <img src="https://images2.thanhnien.vn/528068263637045248/2023/10/30/messi-1-16986835956171266032258.jpeg" alt="">
                     </div>
-                    <span>PhatPHV</span>
+                    <span>{{ request.user }}</span>
                     <div class="action_menu user-close d-none">
                         <ul>
                             <li><a href="{% url 'handle_logout' %}">Log out</a></li>
@@ -107,7 +107,7 @@
                         <div class="input-group-append">
                             <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
                         </div>
-                        <input id="question" type="text" name="question" class="type_msg" placeholder="Type your message...">
+                        <input id="question" type="text" name="question" class="type_msg" placeholder="Type your message..." required>
                         <input type="hidden" name="tag" value='{{cont.id}}'>
     
                         <div class="input-group-append">
