@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{%static 'css/main.css'%}" rel="stylesheet" id="bootstrap-css">
+    <link rel="icon" href="{% static "images/logoDuck.ico" %}" type="image/x-icon">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+    <title>DUT Travel Bot</title>
+</head>
+<body>
+    <div class="container-fluid d-flex" style="padding: 0; max-width: 100vw;">
+        <div class="history slide-in" style="padding: 0;">
+            <div class="history-container">
+                <div class="header-his">
+                    <div class="search-group">
+                        <input type="text" placeholder="Tìm kiếm lịch sử..." name="" class="search">
+                        <!-- <div class="input-group-prepend"> -->
+                            <span class="search_btn"><i class="fas fa-search"></i></span>
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="body-his">
+                    <div ><a href="{% url "demo" %} " class="history-chat" id="new-chat"><i class="fa-solid fa-plus"></i> &nbsp  New chat</a>
+                    </div>
+                        {% for content in contents reversed%}
+                    <div class="div-select">
+                        <a href="{% url "search" %}?tag={{content.id}}" class ="history-chat {% if content.id == cont.id %}active{% endif %}">{{content.name}}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="user">
+                <div class="user-info">
+                    <div class="img-user">
+                        <img src="https://images2.thanhnien.vn/528068263637045248/2023/10/30/messi-1-16986835956171266032258.jpeg" alt="">
+                    </div>
+                    <span>PhatPHV</span>
+                    <div class="action_menu user-close d-none">
+                        <ul>
+                            <li><a href="{% url 'handle_logout' %}">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-container d-flex justify-content-center">
+            <div class="body" id="body-chat">
+                {% for chat in conv %}
+                <!-- user  message -->
+                <div class="d-flex justify-content-end chat-block user-chat">
+                    <div class="user-msg">
+                        {{chat.user_question}}
+                    </div>
+                </div>
+                <!-- bot message -->
+                <div class="d-flex justify-content-start chat-block">
+                    <div class="bot-msg">
+                        {{chat.bot_answer}}
+                        {% if chat.link_img != "['']" and chat.link_img != "None" and chat.link_img != ""%}
+                                <br><img src="{{ chat.link_img }}" alt="Image" width="50%" style="margin-right: 20px;">
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- bot suggest  -->
+                {% if conv %}
+                    {% if request.session.suggest_text_first is not None %}
+                    <div class="msg_suggest">
+                        {% for item in request.session.suggest_text_first %}
+                            <div class="suggest_questions d-flex justify-content-end chat-block">
+                                <button class="suggest_questions_item" value="{{ item }}">{{ item }}</button> 
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="chat-group">
+                {% if conv %}
+                <form class="form-input" id="post-form">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                        </div>
+                        <input id="question" type="text" name="question" class="type_msg" placeholder="Type your message...">
+                        <input type="hidden" id="tag" name="tag" value='{{cont.id}}'>
+    
+                        <div class="input-group-append">
+                            <span class="input-group-text send_btn"><button id= 'submit' type= "submit" class="btn fas fa-location-arrow"></button></span>
+                        </div>
+                    </div>
+                </form>
+                {% else %}
+                <form action="{% url "chat" %}" method= "POST" class="form-input">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+                        </div>
+                        <input id="question" type="text" name="question" class="type_msg" placeholder="Type your message...">
+                        <input type="hidden" name="tag" value='{{cont.id}}'>
+    
+                        <div class="input-group-append">
+                            <span class="input-group-text send_btn"><button id= 'submit' type= "submit" class="btn fas fa-location-arrow"></button></span>
+                        </div>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+
+            <div class="icon">
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+</body>
+{% block javascript %}
+	<script src="{% static "js/main.js" %}"></script>
+	{% if conv %}
+	<script src="{% static "js/demo.js" %}"></script>
+	{% else %}
+	<script src="{% static "js/chat.js" %}"></script>
+	{% endif %}
+{% endblock %}
+<script>
+    let chat = document.querySelector('.chat')
+    let history = document.querySelector('.history')
+
+    let arrow = document.querySelector('.icon')
+
+    arrow.addEventListener('click', function () {
+        // close
+        if(history.classList.contains('slide-in')) {
+            history.classList.remove('slide-in')
+            history.classList.add('slide-out')
+            arrow.classList.add('rotate-out')
+            arrow.classList.remove('rotate-in')
+            setTimeout(function() {
+                history.classList.add('d-none')
+            },200)
+        }
+        // open
+        else {
+            history.classList.remove('d-none')
+            history.classList.add('slide-in')
+            history.classList.remove('slide-out')
+            arrow.classList.remove('rotate-out')
+            arrow.classList.add('rotate-in')
+        }
+    })
+
+    arrow.addEventListener('mouseover', function() {
+        history.style.opacity = '0.8'
+    })
+
+    arrow.addEventListener('mouseout', function() {
+        history.style.opacity = '1'
+    })
+
+    arrow
+
+    let user = document.querySelector('.user-info')
+    let logout = document.querySelector('.action_menu')
+    user.addEventListener('click', function() {
+
+        if(logout.classList.contains('user-open')) {
+            logout.classList.remove('user-open')
+            logout.classList.add('user-close')
+            setTimeout(function() {
+                logout.classList.add('d-none')
+            },200)
+        }
+        else {
+            logout.classList.toggle('d-none')
+            logout.classList.add('user-open')
+            logout.classList.remove('user-close')
+        }
+
+        user.classList.toggle('clicked')
+    })
+
+    let form = document.querySelector('#question')
+
+    form.addEventListener('focus', function(e) {
+        e.preventDefault();
+    })
+
+    let input_search = document.querySelector('.search')
+    input_search.addEventListener('keydown', function() {
+        let listhistory = document.querySelectorAll('.div-select')
+
+        let val = input_search.value
+        for(let i of listhistory) {
+            i.classList.remove('d-none')
+        }
+
+        for(let i of listhistory) {
+            let text = i.querySelector('a')
+            if(!text.innerText.toLowerCase().includes(val.toLowerCase())) {
+                i.classList.add('d-none')
+            }
+        }
+    })
+
+
+</script>
+</html>

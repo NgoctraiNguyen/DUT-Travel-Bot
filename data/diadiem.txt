@@ -1,0 +1,301 @@
+{
+	"tag":"Mangala Zen Garden & Luxury Apartments",
+	"question": [
+		"Địa chỉ của Mangala Zen Garden & Luxury Apartments ở đâu ?",
+		"Mangala Zen Garden & Luxury Apartments có dịch vụ gì ?",
+		"Giới thiệu về Mangala Zen Garden & Luxury Apartments",
+		"Khách sạn Mangala Zen Garden & Luxury Apartments nằm ở đâu ?",
+	],
+	"context": [
+		"Địa chỉ Mangala Zen Garden & Luxury Apartments ở J02 The Ocean Villas, Ngũ Hành Sơn, Đà Nẵng;Khách sạn Mangala Zen Garden & Luxury Apartments nằm trong khu phức hợp Câu lạc bộ Golf ở thành phố biển Đà Nẵng,  có tầm nhìn hướng ra biển thoáng đãng vô cùng đẹp, hệ thống hồ bơi ngoài trời và 2 nhà hàng phục vụ chế độ ăn Ayurvedic và một loạt các món ăn Á Âu sang trọng. Tất cả các phòng đều cách bãi biển chỉ vài bước chân trong khi tất cả các căn hộ đều cách đó 3 phút đi xe hơi;Khách sạn này cách phố cổ Hội An 12km, bãi Non Nước và cách sân bay Quốc tế Đà Nẵng 15km;Số điện thoại liên hệ: 090 113 1132;"
+		
+	],
+	"linking": [
+		"https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1000/v1654506618/blog/uaoavo1uiyr7k9yxh21m.webp"
+	]
+},
+{	
+	"tag":"Furama Resort",
+	"question": [
+		"Khách sạn Furama Resort nằm ở đâu ?",
+		"Địa chỉ của khách sạn Furama Resort ?",
+		"Furama Resort có những điểm gì nổi bật ?",
+		"Giới thiệu về Furama Resort."
+	],
+	"context": [
+		"Furama Resort nếp mình trên Bắc Mỹ An Nơi đây cách thương cảng “Con đường tơ lụa” cổ kính Hội An 30 phút lái xe và cách Thánh địa Mỹ Sơn chưa đầy 2 giờ. Khách sạn 5 sao Đà Nẵng này được thiết kế trang nhã, tất cả các phòng máy lạnh rộng rãi đều có ban công riêng nhìn ra vùng nhiệt đới. Các phòng có sàn gỗ, thảm trang nhã, tủ quần áo không cửa ngăn, không gian tiếp khách rộng rãi và phòng tắm lớn lát đá cẩm thạch. Khu nghỉ dưỡng cũng cung cấp các lớp học yoga và Thái Cực Quyền trên bãi biển;Địa chỉ của Furama Resort nằm ở 105 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng;Số điện thoại liên hệ: 0236 3847 333;",
+		
+	],
+	"linking": ["
+	]
+	
+},
+{
+	"tag": "Vinpearl Luxury",
+	"question": [
+		"Vinpearl Luxury nằm ở đâu?",
+		"Địa chỉ của Vinpearl Luxury?",
+		"Giới thiệu về Vinpearl Luxury.",
+		"Vinpearl Luxury có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Với bối cảnh là Ngũ Hành Sơn, Vinpearl Luxury Đà Nẵng cung cấp chỗ ở sang trọng bên những bãi cát hoang sơ của Bãi biển Non Nước. Nơi đây có 5 hồ bơi ngoài trời, spa đủ dịch vụ và các tiện nghi tập thể dục. Với nội thất hiện đại, các phòng rộng rãi có ban công riêng với tầm nhìn tuyệt đẹp ra biển hoặc hồ bơi và chỗ ngồi ngoài trời. Quý khách có thể dành những buổi chiều nhàn nhã bên bãi biển riêng hoặc lặn với ống thở trong làn nước trong xanh;Các tiện ích khác của khách sạn 5 sao ở Đà Nẵng này bao gồm truy cập Internet miễn phí, trung tâm dịch vụ doanh nhân và bàn đặt tour. Bữa sáng tự chọn thịnh soạn và dịch vụ ăn uống cả ngày được phục vụ tại nhà hàng Gourmet và phục vụ các món ăn Việt Nam trong khi nhà hàng Oriental. Tại đây bạn có thể tham quan núi Ngũ Hành Sơn và Hội An trong ngày từ Đà Nẵng với những trải nghiệm thú vị;Địa chỉ của Vinpearl luxury nằm ở 7 Trường Sa, Ngũ Hành Sơn, Đà Nẵng;Số điện thoại liên hệ: 0236 3968 999;"
+	]
+},
+{
+	"tag": "Sel de Mer Hotel & Suites",
+	"question": [
+		"Sel de Mer Hotel & Suites nằm ở đâu?",
+		"Địa chỉ của Sel de Mer Hotel & Suitesy?",
+		"Giới thiệu về Sel de Mer Hotel & Suites.",
+		"Sel de Mer Hotel & Suites có những điểm gì nổi bật?"
+	],
+	"context": [Suites
+		"Ẩn mình trong khung cảnh nhiệt đới tươi tốt biển ngọc Đà Nẵng, khách sạn 5 sao Đà Nẵng Sel de Mẻ Hotel & Suites có khung cảnh tuyệt đẹp hướng ánh nhìn ra bờ biển xanh ngát của và cung cấp các biệt thự sang trọng bậc nhất với truy cập Wifi miễn phí và có hồ bơi riêng. Khách sạn mang đến 164 phòng với thiết kế hiện đại hài hòa cùng thiên nhiên, trang bị đồ mới nhất để đáp ứng mong muốn của mọi du khách;Hành trình đến Sel de Mer Hotel & Suites Đà Nẵng là một chuyến trải nghiệm tuyệt vời, với các tiện nghi hoàn hảo như hồ bơi mát lạnh, phòng tập thể dục hiện đại, quầy bar sôi động và khu phòng tắm hơi thảo mộc thư giãn. Không những thế, du khách còn có cơ hội thưởng thức bữa sáng ngon lành tại nhà hàng đẳng cấp của khách sạn;Địa chỉ của Sel de Mer Hotel & Suites nằm tại 92 Võ Nguyên Giáp, Phường Mân Thái, Quận Sơn Trà, Đà Nẵng;Số điện thoại liên hệ: 1900 5454 40;"
+	]
+},
+{
+	"tag": "Sun Peninsula Resort",
+	"question": [
+		"Sun Peninsula Resort nằm ở đâu?",
+		"Địa chỉ của Sun Peninsula Resort?",
+		"Giới thiệu về Sun Peninsula Resort.",
+		"Sun Peninsula Resort có những điểm gì nổi bật?"
+	],
+	"context": [
+		"cung cấp nơi nghỉ dưỡng với bãi biển riêng, hồ bơi lớn ngoài trời và spa. Du khách có thể tận hưởng tầm nhìn ngoạn mục ra biển rộng bao la từ khu nghỉ mát. Các biệt thự bên bờ biển của khu nghỉ mát nằm nép mình trong những tảng đá to ở chân núi và có hồ bơi riêng, hiên tắm nắng cũng như tiện nghi phòng tắm sang trọng. Tất cả các phòng nghỉ đều được trang trí sang trọng và có ban công riêng. Ngoài ra, du khách có thể trải nghiệm các liệu pháp mát-xa thư giãn và chăm sóc cơ thể tại spa; Để có trải nghiệm ăn uống thư thái bên bờ biển, hãy ghé thăm Barefoot và nếm thử các loại thịt nướng thơm ngon và hải sản tươi sống kết hợp với cocktail và rượu vang. Thử cảm giác mới lạ khi thưởng thức các món ngon Việt Nam tươi ngon trong các gian hàng riêng ở độ cao 100m so với mực nước biển tại Nhà hàng Citron. Buffalo Bar phục vụ rượu sâm panh cổ điển và xì gà cuộn bằng tay cao cấp;Địa chỉ của Sun Peninsula Resort nằm ở Bãi Bắc, Sơn Trà, Đà Nẵng;Số điện thoại liên hệ: 0236 3938 888;"
+	]
+},
+{
+	"tag": "Khách sạn Rosamia",
+	"question": [
+		"Khách sạn Rosamia nằm ở đâu?",
+		"Địa chỉ của Khách sạn Rosamia?",
+		"Giới thiệu về Khách sạn Rosamia.",
+		"Khách sạn Rosamia có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Rosamia cũng cấp chỗ nghỉ với quầy bar và wifi miễn phí cũng như chỗ đỗ xe riêng miễn phí cho khách lái xe. Khách sạn 5 sao này có clb trẻ em và dịch vụ trông trẻ rất thích hợp cho các gia đình đến đây nghỉ dưỡng. Một số phòng ở đây có bếp nhỏ với minibar. Khách nghỉ tại khách sạn có thể thưởng thức bữa sáng kiểu địa phương. Khách sạn Rosamia Đà Nẵng có sân hiên tắm nắng. Bạn có thể chơi phi tiêu tại chỗ nghỉ và có dịch vụ cho thuê xe hơi. Nơi nghỉ có phòng xông hơi khô, tiệm làm tóc và trung tâm dịch vụ doanh nhân ngay trong khuôn viên; Khách sạn này cách Cầu Tình yêu Đà Nẵng 3,2km và Bảo tàng Chăm 3.8 km. Mất khoảng 6km lái xe đến sân bày Quốc tế Đà Nẵng ngoài ra nơi đây còn cung cấp dịch vụ đưa đón sân bay có trả phí; Địa chỉ của khách sạn Rosamia: 282 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng;Số điện thoại liên hệ: 0236 3954 999;"
+		
+	]
+},
+{
+	"tag": "TMS Đà Nẵng Beach",
+	"question": [
+		"TMS Đà Nẵng Beach nằm ở đâu?",
+		"Địa chỉ của TMS Đà Nẵng Beach?",
+		"Giới thiệu về TMS Đà Nẵng Beach.",
+		"TMS Đà Nẵng Beach có những điểm gì nổi bật?"
+	],
+	"context": [
+		"TMS Đà Nẵng Beach có nhà hàng, hồ bơi ngoài trời, trung tâm thể dục và quầy bar tại Đà Nẵng. Nơi nghỉ này có các phòng gia đình và sân chơi cho trẻ em. Các phòng nghỉ tại khách sạn được trang bị đầy đủ máy lạnh, khu vực tiếp khách, truyền hình cáp màn hình phẳng, két an toàn và phòng tắm riêng với vòi sen, áo choàng tắm cùng dép đầy đủ tiện nghi. Bên cạnh đó, tất cả các phòng đều được trang bị ấm đun nước trong khi một số phòng có cả nhà bếp với lò vi sóng và tủ lạnh đáp ứng tối đa nhu cầu của du khách. Khách sạn 5 sao Đà Nẵng này còn phục vụ bữa sáng tự chọn và các bữa ăn phong cách kiểu Mỹ.; Địa chỉ TMS Đà Nẵng Beach nằm ở 282 Võ Nguyên Giáp, Ngũ Hành Sơn, Đà Nẵng; Số điên thoại để liên hệ TMS Đà Nẵng Beach: 0236 3954 999; "
+	]
+},
+{
+	"tag": "Four Points by Sheraton",
+	"question": [
+		"Four Points by Sheraton nằm ở đâu?",
+		"Địa chỉ của Four Points by Sheraton?",
+		"Giới thiệu về Four Points by Sheraton.",
+		"Four Points by Sheraton có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Four Points by Sheraton tọa lạc tại Bãi biển Mỹ Khê. Khách sạn hiện đại này nằm ngay sát bãi biển với cảnh quan đẹp, mát mẻ. Có các phòng hướng ra thành phố và biển, nơi bạn có thể ngắm bình minh và ngắm nhìn những bãi biển tuyệt đẹp, máy lạnh được trang bị TV màn hình phẳng và ban công nhìn ra quang cảnh ngoạn mục trong khi một số phòng có khu vực tiếp khách. Khách sạn có quầy bar, nơi du khách có thể nghỉ ngơi và tận hưởng những giây phút thư giãn tuyệt vời.; Địa chỉ của Four Points by Sheraton nằm ở 120 Võ Nguyên Giáp, Sơn Trà, Đà Nẵng; Số điện thoại liên hệ của Four Points by Sheraton: 0236 3997 979;"
+	]
+},
+{
+	"tag": "Khách sạn Radisson",
+	"question": [
+		"Khách sạn Radisson nằm ở đâu?",
+		"Địa chỉ của Khách sạn Radisson?",
+		"Giới thiệu về Khách sạn Radisson.",
+		"Khách sạn Radisson có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Khách sạn Radisson có 182 phòng và suite với tầm nhìn toàn cảnh thành phố và biển đảo đẹp mỹ mãn. Bảy loại phòng bao gồm từ Phòng Deluxe 28m² đến Phòng Gia đình 70m² Nhìn ra Đại dương, và Executive Lounge là không gian độc quyền trên tầng 20 hứa hẹn có các dịch vụ bổ sung và đồ uống giải khát cả ngày.; Địa chỉ của khách sạn Radisson nằm ở 170 Võ Nguyên Giáp, Phước Mỹ, Đà Nẵng; Địa chỉ liên hệ của khách sạn Radission Đà Nẵng: 0236 3898 666; Tọa lạc tại một vị trí hoàn hảo bên cạnh bãi biển Mỹ Khê, chỉ cách sân bay quốc tế Đà Nẵng 10 phút lái xe và dễ dàng tiếp cận các trung tâm vui chơi và giải trí ở Đà Nẵng;"
+	]
+},
+{
+	"tag": "Altara Suites",
+	"question": [
+		"Altara Suites nằm ở đâu?",
+		"Địa chỉ của Altara Suites?",
+		"Giới thiệu về Altara Suites.",
+		"Altara Suites có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Altara Suites cung cấp chỗ nghỉ bên bãi biển có "view" cực xịn sò. Nơi đây có hồ bơi ngoài trời trên tầng mái và du khách có thể thưởng thức các bữa ăn gọi món tại nhà hàng Altitude hoặc thưởng thức đồ uống tại quầy bar. Tất cả các phòng đều có ban công và TV màn hình phẳng với các kênh truyền hình cáp. Các phòng có khu vực ăn uống và nhà bếp được trang bị lò vi sóng cùng tủ lạnh. Phòng tắm riêng đi kèm áo choàng tắm và dép đi trong nhà. Du khách có thể rèn luyện sức khỏe hiệu quả tại trung tâm thể dục trên tầng 32, sau đó là phòng xông hơi khô miễn phí nhìn ra Bán đảo Sơn Trà; Cách sân bay Quốc tế Đà Nẵng 6,6 km từ khách sạn.; Địa chỉ của Altara Suites nằm ở 120 Võ Nguyên Giáp, Sơn Trà, Đà Nẵng.; Số điện thoại liên hệ của Altara Suites: 0236 2687 979.;"
+	]
+},
+{
+	"tag": "Pullman Đà Nẵng Beach",
+	"question": [
+		"Pullman Đà Nẵng Beach nằm ở đâu?",
+		"Địa chỉ của Pullman Đà Nẵng Beach?",
+		"Giới thiệu về Pullman Đà Nẵng Beach.",
+		"Pullman Đà Nẵng Beach có những điểm gì nổi bật?"
+	],
+	"context": [
+		"Khách sạn 5 sao Đà Nẵng này được mệnh danh là một khu nghỉ mát “quyến rũ” có vị trí mặt tiền hướng ra biển vô cùng sang trọng.; Pullman Đà Nẵng Beach Resort định vị trên bãi biển Bắc Mỹ An, cách trung tâm thành phố đáng sống 3 km. Nơi đây có hồ bơi ngoài trời và spa chăm sóc sắc đẹp và sức khỏe chuyên nghiệp. Pullman Beach Resort cách sân bay quốc tế Đà Nẵng khoảng 8 km.; Nơi đây còn cung cấp dịch vụ đưa đón sân bay hai chiều vô cùng tiện lợi cho du khách. Các phòng tại đây có ban công riêng nhìn ra vườn, biển hoặc ao. Bên canh đó mỗi phòng đều được trang bị TV, tủ lạnh và các thiết bị phục vụ nhu cầu của du khách khác. Du khách có thể rèn luyện sức khỏe tại trung tâm thể dục hoặc thuê xe đạp để khám phá khu vực xung quanh. Thiết bị thể thao dưới nước cũng được cung cấp cho du khách. Các tiện nghi khác bao gồm bàn đặt tour và các sân tennis. Restaurant Epice có bếp biểu diễn, nơi du khách có thể xem các đầu bếp chế biến các món đặc sản địa phương.;"
+	]
+},
+{
+	"tag": "Khách sạn view biển",
+	"question": [
+		"Những khách sạn có view biển.",
+		"Những khách sạn gần biển",
+		"Khách sạn có view đẹp",
+	],
+	"context": [
+		"Dưới đây là những khách sạn có view biển đẹp: Furama Resort, Rosamia, TMS Đà Nẵng Beach, Four Points by Sheraton,... là những khách sạn có view hướng ra bãi biển Mỹ Khê xinh đẹp. Hay Mangala Zen Garden & Luxury Apartments chỉ cách bãi biển Non Nước vài bước chân. Hoặc nếu bạn muốn vẻ đẹp hoang sơ thì hãy đến Sun Peninsula Resort, du khách có thể tận hưởng tầm nhìn ngoạn mục ra biển rộng bao la nằm ở Bãi Bắc."
+	]
+},
+{
+	"tag": "Khách sạn 5 sao",
+	"question": [
+		"Những khách sạn 5 sao ở Đà Nẵng",
+		"Những khách có dịch vụ 5 sao ",
+		"Khách sạn sang trọng",
+		"Khách sạn có dịch vụ tốt",
+		"Khách sạn hàng đầu ở đà nẵng"
+	],
+	"context": [
+		"Những khách sạn có dịch vụ chuẩn 5 sao đáng trải nghiệm ở Đà Nẵng: Furama Resort, Vinpearl Luxury, Sel de Mer Hotel & Suites, InterContinental Đà Nẵng Sun Peninsula Resort,... Hầu hết các khách sạn này đã được các khách hàng trải nghiệm và đánh giá khá tốt về chất lượng dịch vụ. "
+	]
+},
+{
+	"tag": "khách sạn Liên Chiểu",
+	"question": [
+		"Ở Liên Chiểu có những khách sạn nào tốt",
+		"Những khách sạn có dịch vụ tốt ở quận Liên Chiều"
+	],
+	"context": [
+		"Dưới đây là những khách sạn tốt ở Liên Chiều đáng để trải nghiệm: Le House hotel and Studio, Bolero Hotel Danang, Hoang Lan Villa,..."
+	]
+},
+{
+	"tag": "le House Hotel and Studio",
+	"question": [	
+		"Le House Hotel and Studio ở đâu?",
+		"Địa chỉ của Le House and Studio?",
+		"Giới thiệu về Le House and Studio."
+	],
+	"context": [
+		"Địa chỉ của Le House hotel nằm ở 134 Lê Văn Thịnh, Đà Nẵng;Nằm ở Đà Nẵng, cách Bãi biển Xuân Thiều 7 phút đi bộ và Bãi biển Thanh Bình 1.8 km, Le House Hotel and Studio cung cấp chỗ nghỉ có sân hiên và Wi-Fi miễn phí ở toàn bộ chỗ nghỉ cũng như chỗ đậu xe riêng miễn phí cho khách lái xe. Chỗ nghỉ cách Trung tâm thương mại Indochina Riverside khoảng 7.6 km, Cầu sông Hàn 7.6 km và Bảo tàng điêu khắc Chăm 7.9 km. Chỗ nghỉ này cung cấp dịch vụ phòng, quầy lễ tân 24 giờ và tổ chức các tour du lịch cho khách.;"
+	]
+},
+{
+	"tag": "Bolero Hotel Danang",
+	"question": [
+		"Địa chỉ của Bolero Hotel Danang nằm ở đâu?",
+		"Bolero Hotel Danang ở đâu?",
+		"Giới thiệu về Bolero Hotel Danang"
+	],
+	"context": [
+		"Địa chỉ của Bolero Hotel Danang ở 159 Nguyễn Chánh, Hòa Khánh Bắc, Liên Chiểu, Đà Nẵng; Bolero Hotel & Homestay là một nơi nghỉ nằm trong khu vực an ninh, toạ lạc tại Hòa Khánh Bắc. Quầy tiếp tân 24 giờ luôn sẵn sàng phục vụ quý khách từ thủ tục nhận phòng đến trả phòng hay bất kỳ yêu. "
+	]
+},
+{
+	"tag": "Biển Mỹ Khê",
+	"question": [
+		"Biển Mỹ Khê nằm ở đâu?",
+		"Nên làm gì ở biển Mỹ Khê?",
+		"Dịch vụ đáng trải nghiệm ở biển Mỹ Khê.",
+		"Biển Mỹ Khê có đẹp không?",
+		"Bãi biển đẹp ở Đà Nẵng",	
+	],
+	"context": [
+		"Vị trí chính xác của biển Mỹ Khê là đường Võ Nguyên Giáp, thuộc phường Phước Mỹ, địa phận quận Sơn Trà, thành phố Đà Nẵng. Địa điểm này cách trung tâm thành phố chỉ khoảng 3km, vì vậy bạn có thể dễ dàng di chuyển bằng ô tô, taxi hoặc xe máy.; Mỹ Khê là tên gọi chung của đường bờ biển kéo dài khoảng 10km từ chân bán đảo Sơn Trà đến núi Ngũ Hành, còn bãi biển Mỹ Khê bao gồm 3 bãi tắm chính nằm trải dài gần 1km ở khu vực trung tâm thành phố, nơi du khách được thoải mái đắm chìm trong màu xanh của biển trải dài tới tận chân trời.;Bãi biển Mỹ Khê sở hữu bãi cát trắng mịn, độ dốc thoai thoải, nước trong và ấm quanh năm, không có sóng lớn; dọc theo bờ biển là rừng dương và hàng dừa xanh thẳng tắp, đêm đến một vẻ đẹp bình yên, thư thái. Đến với bãi biển Mỹ Khê, bạn không chỉ được tận hưởng thiên nhiên tuyệt đẹp mà còn có thể chơi các môn thể thao dưới nước, tổ chức cắm trại bên bờ biển, hoặc thưởng thức những món ngon đặc trưng của phố biển. Đặc biệt, nước biển có độ mặn chỉ khoảng 60%, không bị ô nhiễm, và được kiểm định an toàn cao. Vì thế, bạn và gia đình có thể yên tâm tắm biển Mỹ Khê. Ngoài ra, chính quyền và người dân Đà Nẵng luôn nỗ lực giữ gìn vệ sinh và an toàn bãi biển, đồng thời tạo ra nhiều hoạt động du lịch thú vị để chào đón du khách.;"
+	]
+},
+{
+	"tag": "Ngũ Hành Sơn",
+	"question": [
+		"Thời điểm lí tưởng tham quan Ngũ Hành Sơn",
+		"Cách di chuyển tới Ngũ Hành Sơn",
+		"Cảnh đẹp núi Ngũ Hành Sơn",
+		"Chỗ ở gần Ngũ Hành Sơn",
+		"Món ngon ở Ngũ Hành Sơn",
+		"Ngũ Hành Sơn ở đâu",
+		"Những lưu ý khi đến Ngũ Hành Sơn"
+	],
+	"context": [
+		"Với thời tiết trong lành, mát mẻ và phong cảnh đẹp 4 mùa, Ngũ Hành Sơn là một trong những địa điểm du lịch Đà Nẵng hấp dẫn mà bạn có thể thăm quan bất kì lúc nào trong năm. Nếu đi du lịch vào mùa hè thì ngoài Ngũ Hành Sơn, bạn còn có thể kết hợp đi nghỉ mát tại những bãi biển trong khu vực.;Quãng đường từ trung tâm thành phố Đà Nẵng đến Ngũ Hành Sơn chỉ khoảng 7km nên bạn có thể chọn di chuyển bằng xe máy, xe bus hoặc taxi.
+Xe máy: Bạn có thể đi theo 2 đường để tới Ngũ Hành Sơn: Võ Nguyên Giáp – Trường Sa – Non Nước hoặc Lê Văn Hiến – Non Nước. Thời gian di chuyển bằng xe máy khoảng 15 phút.
+Xe bus: Bạn có thể chọn tuyến số 1 từ Đà Nẵng đi Hội An, xuất phát từ Bến xe Trung tâm thành phố Đà Nẵng và xuống tại điểm Ngũ Hành Sơn. Thời gian giờ giữa các chuyến xe là 20 phút.
+Taxi: Một số các hàng taxi ở Đà Nẵng là Taxi Sông Hàn, Mai Linh Taxi, Hương Lúa Taxi.; Các cảnh đẹp ở Ngũ Hành Sơn mà bạn không thể bỏ qua: gồm 5 ngọn núi đại diện cho Ngũ Hành Thủy Sơn, Kim Sơn, Mộc Sơn, Hỏa Sơn, Thổ Sơn trong đó Thủy Sơn là ngọn núi đẹp và lớn nhất được nhiều du khách chọn để tham quan khám phá. Đến đây không chỉ được chiêm ngưỡng toàn cảnh thành phố Đà Nẵng xinh đẹp từ trên cao mà bạn còn được thăm quan nhiều đền chùa và hang động đẹp. Chùa Linh Ứng, chùa Tam Thai, động Huyền Không, động Âm Phủ là những địa điểm đặc sắc mà du khách có thể trải nghiệm khi đến với Thủy Sơn. Gần đó còn có bãi biển Non Nước với bãi cát trắng mịn trải dài bên bờ biển xanh trong và những rặng phi lao xanh rì rào trong gió, bạn được hoà mình trong làn nước trong vắt, mát lạnh, xua tan đi mọi ưu phiền của cuộc sống hàng ngày.;
+",
+	"Ngũ Hành Sơn có vị trí không quá xa trung tâm thành phố Đà Nẵng nên có rất nhiều khách sạn cho bạn lựa chọn. Dưới đây là vài khách sạn đẹp và có vị trí thuận tiện để di chuyển bạn có thể tham khảo: Hemera Hotel nằm ở 91 Hồ Xuân Hương, Mỹ An, Le Manoir Premier Da Nang nằm ở 378 Võ Nguyên Giáp, Phường Mỹ An,...;"
+	"Những món ngon bạn nên thử khi đến với Ngũ Hành Sơn: 
+	Mỳ Quảng: là một trong những đặc sản của thành phố Đà Nẵng. Món ngon này được chế biến bằng loại nước lèo đậm đà, béo ngọt chan vào trong nguyên liệu bao gồm sợi mỳ, thịt gà, tôm, và dùng kèm với bánh đa vừng giòn giòn. Một số quán mì quảng ngon: Mì Quảng Dung (43 Ngũ Hành Sơn), Mì Quảng Phương (06 Phan Tứ), Mì Quảng bà Vị (60 Ngũ Hành Sơn).
+	Hải sản: Gần những bờ biển xinh đẹp, khu vực Ngũ Hành Sơn còn có những quán hải sản tươi ngon giá rẻ phục vụ du khách. Tất cả các loại hải sản ở đây như: tôm, cua, ghe, bạch tuộc, ốc,… đều tươi sống và bạn sẽ được tha hồ tự do lựa chọn để nhà hàng chế biến.Một số địa chỉ các quán hải sản cho bạn “bỏ túi” khi đến với khu vực này là: Hải Sản A Tý (tại số 2 Trường Sa), Hải Sản Bình Dân 2 Tâm (Lô 12-13 Trường Sa), Hải Sản Cu Nhật (23 Ngũ Hành Sơn)…. Một số quán ăn ngon khác gần khu vực này bạn có thể thưởng thức trên đường đến đây là: bún riêu cua Bà Hai (K25/14 Ngũ Hành Sơn), bún mắm Cô Sáu (93 Hồ Xuân Hương), bê thui Quán Lý (328 Ngũ Hành Sơn), bò né 3 Ngon (262 Lê Văn Hiền),…;",
+	"Vì có nhiều đền chùa linh thiêng nên khi đi thăm quan Ngũ Hành Sơn, bạn hãy chú ý ăn mặc lịch sự, gọn gàng, nên mặc áo có tay, quần hoặc váy dưới đầu gối.
+Bạn có thể mang thêm nước uống và đồ ăn để phòng đói nhưng hãy nhớ vứt rác đúng chỗ và giữ gìn vệ sinh chung nhé!;"
+	]
+},
+{
+	"tag": "Núi Thần Tài",
+	"question": [
+		"Vị trí của núi Thần Tài?",
+		"Địa chỉ của núi Thần Tài",
+		"Cách di chuyển đến núi Thần Tài?",
+		"Giá vé vào Núi Thần Tài bao nhiêu",
+		"Núi Thần Tài có gì?",
+		"Những món ngon ở Núi Thần Tài",
+		"Thời điểm lí tưởng để tham quan Núi Thần Tài"
+		
+	],
+	"context": [
+		"Đến với Núi thần tài Đà Nẵng, du khách sẽ có cơ hội được trải nghiệm những dịch vụ nghỉ dưỡng “sang chảnh” như tắm onsen cùng nhiều loại hình tắm độc đáo “có 1 không 2”; lưu trú trong resort chuẩn 4 sao quốc tế với nguồn khoáng nóng dẫn vào từng căn hộ; thưởng thức ẩm thực độc đáo hàng trăm món Á - Âu; tham quan những công trình độc đáo lần đầu có mặt tại Đà Nẵng…;Thời gian di chuyển từ trung tâm thành phố Đà Nẵng đến Núi Thần Tài chỉ khoảng 1 tiếng đồng hồ. Đường đi khá thuận tiện nên du khách có thể thuê xe máy, thuê ô tô tự lái, đi xe cá nhân, đi taxi, đi xe ghép đoàn nếu đặt tour. Dịch vụ cho thuê xe Đà Nẵng đi Công viên Suối khoáng nóng Núi Thần Tài cũng rất thịnh hành nên không khó để bạn đặt được dịch vụ này.;Vé vào cổng Núi thần tài Đà Nẵng là vé gói phổ thông sẽ bao gồm các dịch vụ như: tắm khoáng nóng, tắm onsen Nhật Bản, thăm đền Thần Tài, tắm Jacuzzi suối nóng và suối lạnh, khám phá công viên khủng long, vui chơi tại công viên nước,… Giá vé cụ thể như sau:
+Giá vé cho người lớn: 400.000 VNĐ/ người
+Giá vé cho trẻ em cao từ 1m đến 1,4m: 200.000 VNĐ/ người
+Giá vé cho trẻ em dưới 1m: Miễn phí;",
+	"Du khách không cần lo lắng chuyện ăn uống khi đến Núi Thần Tài Đà Nẵng. Ở đây có đến 2 nhà hàng ẩm thực sang trọng. Nhà hàng Rồng Đỏ phục vụ món ăn tự chọn với thực đơn phong phú gồm 60 món ăn trưa và 70 món ăn tối. Các món ăn được đầu bếp chuyên nghiệp chế biến theo nhiều phong cách ẩm thực khác nhau để phù hợp với đông đảo du khách. Nhà hoàng Phượng Hoàng là lựa chọn lý tưởng cho các tín đồ của lẩu và nướng. Các combo lẩu nướng sẽ gồm 15 món tự chọn theo sở thích của du khách.
+
+Du khách được phép mang theo đồ ăn vào khu du lịch. Muốn tiết kiệm chi phí bạn hoàn toàn có thể tự chuẩn bị đồ ăn cho mình. Ngoài ra, trong khuôn viên công viên suối khoáng Núi Thần Tài cũng có rất nhiều cửa hàng bán đặc sản, sản vật địa phương để du khách thưởng thức hoặc mua làm quà.;Khu vực Núi Thần Tài Đà Nẵng có khí hậu mát mẻ quanh năm. Du khách đến đây sẽ được trải nghiệm trọn vẹn 4 mùa trong 1 ngày. Bạn có thể đến đây vào bất cứ mùa nào trong năm đều hợp lý. Tuy nhiên ở Đà nẵng, mùa mưa kéo dài từ tháng 9 đến tháng 2 năm sau. Thời tiết mưa nhiều có thể ảnh hưởng đến hoạt động tham quan, giải trí ngoài trời và gây bất tiện trong việc đi lại. Thời điểm lý tưởng để ham quan núi thần tài là từ tháng 4 đến tháng 9 hằng năm.;"
+	]
+},
+{
+	"tag": "Bà Nà Hills",
+	"question": [
+		"Giới thiệu về Bà Nà Hills",
+		"Bà Nà Hills nằm ở đâu",
+		"Những điểm nổi bật của Bà Nà Hills",
+		"Thời điểm lý tưởng để tham quan Bà Nà Hills",
+		"Cách di chuyển đến Bà Nà Hills",
+		"Giá vé tham quan Bà Nà Hills",
+		"Ăn gì ở Bà Nà Hills"
+		
+	],
+	"context": [
+		"Nếu bạn thích đông vui, náo nhiệt thì hãy đến đây vào khoảng tháng 4 đến tháng 8 vì khoảng thời gian này trùng với mùa du lịch dài ngày. Vì vậy, bạn tha hồ đi chơi từ sáng đến khuya mà không sợ bị "giảm nhiệt". Còn nếu bạn thích không gian yên tĩnh thì hãy đi vào mùa xuân (tháng 1 - tháng 3), hoặc mùa đông (tháng 10-tháng 12). Những lúc này là mùa thấp điểm, thời tiết lại mát mẻ nên bạn sẽ có cơ hội ngắm được trọn vẹn vẻ đẹp của Bà Nà Hills.;Có 3 cách để đến Bà Nà Hills từ thành phố Đà Nẵng:
+Đường thứ 1: Đường ngắn nhất là đi thẳng từ Suối Mơ đến Bà Nà với khoảng cách tầm 37 km.
+Đường thừ 2: Đi tuyến quốc lộ 14B với khoảng cách tầm 41 km.
+Đường thứ 3: Đi tuyến tỉnh lộ 602 với khoảng cách tầm 42 km.;Bà Nà Hills vẫn còn khá nhiều địa điểm vui chơi tới bến cho bạn lựa chọn. Đầu tiên là làng Pháp - "Châu Âu" thu nhỏ giữa lòng Đà Nẵng. Bạn sẽ được trải nghiệm kiến trúc tuyệt đẹp của Châu Âu thời kì Phục Hưng ngay tại Việt Nam. Ngoài ra, hầm rượu Debay, nơi lưu giữ nhiều loại rượu vang ngon có tiếng, cũng sẽ là địa điểm thú vị dành cho những ai có đam mê với món rượu vang đấy. Một địa điểm khác không thể không nhắc đến là vườn hoa Le Jardin D'Amour, đây là nơi thu hút rất nhiều khách du lịch tới lui để chụp ảnh cũng như ngắm nhìn vườn hoa được trang trí theo phong cách châu Âu đẹp mơ màng. Vườn hoa này được chia ra làm 9 vườn hoa nhỏ, mỗi vườn hoa sẽ mang một chủ đề khác nhau. Điều tuyệt vời nhất của vườn hoa này với tôi là mê cung kì bí, thỏa sức mà dạo chơi.;",
+	"Đi tới chân tháp cáp treo, chúng tôi gửi xe vào bãi và mua vé để leo lên Bà Nà Hills. Vào mùa ít khách, bạn có thể thoải mái mua vé ở ngay tại chân tháp cáp treo. Tuy nhiên, vào mùa đông khách, tôi khuyên bạn nên mua vé trước ở văn phòng đại diện 93 Nguyễn Văn Linh, qua các công ty du lịch, hoặc tại các khách sạn Đà Nẵng mà bạn đang lưu trú. Nếu không, bạn sẽ phải chờ đợi mòn mỏi mới có thể mua được tấm vé ưng ý. Trẻ em dưới 1m Miễn phí, Trẻ em từ 1m – 1m3 600.000 VND Người lớn 700.000 VND. Giá vé này đã bao gồm chi phí đi cáp treo khứ hồi và chi phí cho 90 trò chơi tại Fantasy Park.; Đến với Bà Nà Hills, bạn có hai sự lựa chọn: tự đem theo đồ ăn hoặc ăn theo thực đơn tại các nhà hàng.Với lựa chọn đầu tiên, bạn sẽ tiết kiệm được khá nhiều chi phí. Tuy nhiên, vấn đề ở đây là mang vác lỉnh kỉnh cũng sẽ khiến bạn đau đầu, mất vui.
+Lựa chọn thứ hai, ăn tại nhà hàng sẽ giúp bạn rảnh rang tay chân hơn. Nếu ví tiền rủng rỉnh thì chẳng dại gì mà không chọn phương án này cả, vừa khỏe người mà còn được thưởng thức thêm nhiều món ăn ngon. Lúc trước khi tới Bà Nà Hills, tôi đã có dịp khám phá ra nhà hàng Morin. Ở đây, bạn có thể thưởng thức bữa trưa tự chọn gồm 30 món khác nhau với giá chỉ 90.000 VND/ trẻ em và 180.000 VND/ người lớn. Đồ ăn ở đây khá tươi ngon và sạch sẽ, không gian nhà hàng lại rộng rãi, thoáng mát. Đây quả là một sự kết hợp tuyệt vời cho bữa trưa sau nửa ngày ngồi xe mệt mỏi.;" 
+	]
+},
+{
+	"tag": "Đèo Hải Vân",
+	"question": [
+		"Đèo Hải Vân nằm ở đâu",
+		"Thông tin về Đèo Hải Vân",
+		"Những điểm đặc biệt của Đèo Hải Vân"
+	],
+	"context": [
+		"Du lịch Đà Nẵng - Huế, hẳn bạn không thể bỏ qua cung đường mà rất nhiều khách du lịch luôn muốn chinh phục, đó là đường đèo Hải Vân. Nằm dọc theo chiều dài của núi Hải Vân, là ranh giới giữa hai tỉnh Thừa Thiên Huế và Đà Nẵng, cách thành phố Huế 80km và cách thành phố Đà Nẵng 20km. Đèo cao 500m so với mực nước biển và có chiều dài khoảng 20km. Đèo Hải Vân là một trong những cung đường đèo ven biển đẹp nhất thế giới, là kiệt tác của tạo hoá ban tặng cho Việt Nam. Hình ảnh những cung đường hiểm trở nhưng lại rất xinh đẹp với núi non hùng vĩ, với những tầng mây lững lờ nơi đỉnh núi khiến du khách bất giác mà nhớ đến nhịp điệu bài hát “Tàu anh qua núi”, vẻ đẹp đã đi vào những làn điệu âm nhạc không thể nào quên. Trên đỉnh đèo Hải Vân còn có Hải Vân Quan - là một trong những cửa ải quan trọng được xây dựng từ thời nhà Trần và là pháo đài quân sự phòng thủ cho kinh thành Huế. Cũng chính từ vị trí của cửa ải này, vua Lê Thánh Tông đã ngỡ ngàng trước thiên nhiên tươi đẹp mà dành tặng 6 chữ “Thiên hạ đệ nhất hùng quan” ngày nay còn lưu lại ở Hải Vân Quan.;"
+	]
+},
+{
+	"tag": "Cầu Rồng",
+	"question": [
+		"Cầu rồng nằm ở đâu",
+		"Thông tin về Cầu Rồng",
+		"Cầu rồng phun lửa, phun nước khi nào",
+		"Địa điểm du lịch gần cầu rồng"
+	],
+	"context": [
+		"Khánh thành đúng dịp kỷ niệm 38 năm giải phóng thành phố Đà Nẵng (29/3/2013), cầu Rồng là cây cầu thứ 6 bắc qua dòng sông Hàn. Với thiết kế độc đáo mô phỏng hình dáng con rồng đang uốn lượn trên mặt sông Hàn và hướng ra biển Đông, đầu rồng ngẩng cao và thân rồng uốn lượn. Cầu Rồng là trục chính của Đà Nẵng theo hướng Đông – Tây, là tuyến đường ngắn nhất, nối liền sân bay quốc tế Đà Nẵng với các khu du lịch cao cấp ven biển Sơn Trà- Điện Ngọc, đóng vai trò quan trọng trong chiến lược phát triển và hoàn thiện hạ tầng giao thông đô thị thành phố, đồng thời được kỳ vọng trở thành biểu tượng kiến trúc mới của thành phố.;Cây cầu Rồng Đà Nẵng có địa chỉ ở đường Nguyễn Văn Linh, thuộc phường Phước Ninh, quận Hải Châu, thành phố Đà Nẵng, đây cũng là cây cầu thứ 7 bắc qua sông Hàn hiện nay. Sở dĩ cây cầu này được gọi là cầu Rồng bởi trên cầu đã mô phỏng lại hình dạng một con rồng đang uốn lượn rất đẹp mắt.;Lịch phun lửa cầu Rồng Đà Nẵng sẽ được diễn ra vào 9 giờ tối thứ 7, Chủ nhật hằng tuần, các ngày lễ lớn để phục vụ người dân và khách du lịch. Màn biểu diễn phun lửa sẽ diễn ra 2 lượt, mỗi lượt sẽ gồm 9 lần. Tiếp theo là màn trình diễn phun nước với 3 lượt, mỗi lượt 1 lần, bằng công nghệ hiện đại. Hoạt động này đã khiến cho cây cầu Rồng trở nên ấn tượng và trở thành địa điểm du lịch nổi tiếng Đà Nẵng thu hút rất nhiều khách du lịch mỗi năm.; Gần Cầu Rồng còn có nhiều địa điểm du lịch hấp dẫn: Cầu Tình Yêu, Nhà Thờ Con Gà, Tượng Cá Chép Hóa Rồng, Cầu quay Sông Hàn,..."
+	]
+}

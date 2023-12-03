@@ -10,22 +10,22 @@ import ast
 bot = DuckBot()
 
 
-# @login_required(login_url='login')
-# # Create your views here.
-# def home(request):
-#     # conversation = Conservation.objects.all()
-#     # context= {'conv': conversation}
-#     user = request.user
-#     contents = Content.objects.filter(user=user)
-#     context= {'contents': contents}
-#     return render(request, 'home.html', context)
+@login_required(login_url='login')
+# Create your views here.
+def home(request):
+    # conversation = Conservation.objects.all()
+    # context= {'conv': conversation}
+    user = request.user
+    contents = Content.objects.filter(user=user)
+    context= {'contents': contents}
+    return render(request, 'home.html', context)
 
 @login_required(login_url="login")
 def demo(request):
     user = request.user
     contents = Content.objects.filter(user=user)
     context = {"contents": contents}
-    return render(request, "demo.html", context)
+    return render(request, "demo2.html", context)
 
 def chatting(request):
     context = {}
@@ -143,7 +143,7 @@ def search(request):
         "contents": contents,
         # "suggest_text_first": suggest_text_first,
     }
-    return render(request, "demo.html", context)
+    return render(request, "demo2.html", context)
 
 def login_chatbot(request):
     return render(request, "login.html")

@@ -7,23 +7,18 @@ const createchatdiv = (message, classname) => {
     const chatdiv = document.createElement('div');
 
     if (classname === 'user-chat'){
-        const url_user_image = document.getElementById('user-image').src;
-        chatdiv.classList.add('d-flex', 'justify-content-end', 'mb-4', 'user-chat');
-        let chatconten = `<div class="msg_cotainer_send"> ${message}</div><div class="img_cont_msg"><img src="${url_user_image}" class="rounded-circle user_img_msg"></div>'`;
-        chatdiv.innerHTML= chatconten;
+        chatdiv.classList.add('d-flex', 'justify-content-end', 'chat-block', 'user-chat');
+        let chatcontent = `<div class="user-msg"> ${message}</div>'`;
+        chatdiv.innerHTML= chatcontent;
     }
     else{
-        const url_bot_image = document.getElementById('bot-image').src;
-        chatdiv.classList.add('d-flex', 'justify-content-start', 'mb-4');
-        let chatconten = `
-            <div class="img_cont_msg">
-                <img id="bot-image" src="${url_bot_image}" class="rounded-circle user_img_msg">
-            </div>
-            <div class="msg_cotainer">
+        chatdiv.classList.add('d-flex', 'justify-content-start', '');
+        let chatcontent = `
+            <div class="bot-msg">
                 . . .
             </div>
         `;
-        chatdiv.innerHTML= chatconten;
+        chatdiv.innerHTML= chatcontent;
     }
     return chatdiv;
 }

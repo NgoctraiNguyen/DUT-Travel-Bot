@@ -19,29 +19,22 @@ $(document).ready(function () {
         if (question === "") return;
         
         const chatdiv = document.createElement('div');
-        const url_user_image = document.getElementById('user-image').src;
-        chatdiv.classList.add('d-flex', 'justify-content-end', 'mb-4', 'user-chat');
-        let chatconten = `<div class="msg_cotainer_send"> ${question}</div><div class="img_cont_msg"><img src="${url_user_image}" class="rounded-circle user_img_msg"></div>'`;
+        chatdiv.classList.add('d-flex', 'justify-content-end', 'chat-block', 'user-chat');
+        let chatconten = `<div class="user-msg"> ${question}</div>`;
         chatdiv.innerHTML= chatconten;
         bodychat.appendChild(chatdiv);
 
 
         const chatdiv1 = document.createElement('div');
-        const url_bot_image = document.getElementById('bot-image').src;
-        chatdiv1.classList.add('d-flex', 'justify-content-start', 'mb-4');
+        chatdiv1.classList.add('d-flex', 'justify-content-start', 'chat-block');
 
 
         let chatconten1 = `
-            <div class="img_cont_msg">
-                <img id="bot-image" src="${url_bot_image}" class="rounded-circle user_img_msg">
-            </div>
-            <div class="msg_cotainer">
+            <div class="bot-msg">
                 <div class="loading"></div>
             </div>
-            <div class="msg_suggest"> 
-                <div> </div>
+            <div class="msg_suggest">
             </div>
-            <div
         `;
 
         chatdiv1.innerHTML= chatconten1;
@@ -87,21 +80,16 @@ $(document).ready(function () {
                 const words = response.answer.split(' ');
 
                 const suggest_div = document.createElement('div');
-                let suggest_question_item=`
-                <div class="suggest_questions"></div>` 
-                suggest_div.innerHTML=suggest_question_item;
+                suggest_div.classList.add('msg_suggest')
                 bodychat.appendChild(suggest_div);
 
-                var suggest_question_div=document.querySelector(".suggest_questions");
-                console.log(suggest_question_div)
+                var suggest_question_div=document.querySelector(".msg_suggest");
                 var suggest=response.suggest_text;
                 var tmp_suggest="";
                 suggest = suggest.slice(1, -1);
 
                 // Chia chuỗi thành mảng dựa trên dấu ','
                 var suggest_question = suggest.split(", ");
-                console.log( typeof  suggest_question)
-                console.log(   suggest_question)
 
                 if (Array.isArray(suggest_question) && suggest_question.length > 0) {
                     // Xáo trộn thứ tự trong mảng
@@ -111,7 +99,12 @@ $(document).ready(function () {
                     var numElements = suggest_question.length >= 3 ? 3 : suggest_question.length; // Số phần tử cần lấy (tối đa 3 hoặc độ dài của mảng)
                     
                     for (var i = 0; i < numElements; i++) {
-                      tmp_suggest += '<button class="suggest_questions_item" value="' + suggest_question[i] + '">' + suggest_question[i] + '</button>';
+                        let question_temp = suggest_question[i]
+                      tmp_suggest += ```
+                      <div class="suggest_questions d-flex justify-content-end chat-block">
+                        <button class="suggest_questions_item" value="${question_temp}">' + ${question_temp} + '</button>'
+                      </div>
+                      ```;
                     }
                   } else {
                     tmp_suggest = "s";
