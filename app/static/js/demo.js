@@ -43,7 +43,7 @@ $(document).ready(function () {
         inputchat.value="";
         $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
 
-        var loadingText = ". . . . . . . .";
+        var loadingText = ".  .  .  .  .  .  .  .";
         var index = 0;
         var interval = setInterval(function() {
           $('.loading').last().text(loadingText.substring(0, index));
@@ -80,10 +80,14 @@ $(document).ready(function () {
                 const words = response.answer.split(' ');
 
                 const suggest_div = document.createElement('div');
-                suggest_div.classList.add('msg_suggest')
+                // suggest_div.classList.add('msg_suggest')
+                // bodychat.appendChild(suggest_div);
+                let suggest_question_item=`
+                <div class="suggest_questions"></div>` 
+                suggest_div.innerHTML=suggest_question_item;
                 bodychat.appendChild(suggest_div);
 
-                var suggest_question_div=document.querySelector(".msg_suggest");
+                var suggest_question_div=document.querySelector(".suggest_questions");
                 var suggest=response.suggest_text;
                 var tmp_suggest="";
                 suggest = suggest.slice(1, -1);
@@ -97,15 +101,16 @@ $(document).ready(function () {
                   
                     var tmp_suggest = '';
                     var numElements = suggest_question.length >= 3 ? 3 : suggest_question.length; // Số phần tử cần lấy (tối đa 3 hoặc độ dài của mảng)
-                    
+
+
                     for (var i = 0; i < numElements; i++) {
-                        let question_temp = suggest_question[i]
-                      tmp_suggest += ```
-                      <div class="suggest_questions d-flex justify-content-end chat-block">
-                        <button class="suggest_questions_item" value="${question_temp}">' + ${question_temp} + '</button>'
-                      </div>
-                      ```;
-                    }
+                        let question_temp = suggest_question[i];
+                        tmp_suggest += `
+                          <div class="suggest_questions d-flex justify-content-end chat-block">
+                            <button class="suggest_questions_item" value="${question_temp}">${question_temp}</button>
+                          </div>
+                        `;
+                      }
                   } else {
                     tmp_suggest = "s";
                   }
