@@ -185,13 +185,13 @@ def handle_signup(request):
         
         if User.objects.filter(email=email).exists():
             context = {'message': 'Email đã đăng ký !!.'}
-            return redirect('signup?error')    
+            return redirect('signup')    
         if User.objects.filter(username=username).exists():
             context = {'message': 'username đã trùng !!.'}
-            return redirect('signup?error')     
+            return redirect('signup')     
         if pass1 != pass2:
             context = {'message': "Mật khẩu không khớp"}
-            return redirect('signup?error') 
+            return redirect('signup') 
         
         try:
             validate_password(pass1)
