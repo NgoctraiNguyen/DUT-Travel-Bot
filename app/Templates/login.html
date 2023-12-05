@@ -47,8 +47,8 @@
                 <button class="btn btn-login text-uppercase fw-bold" type="submit" style="background-color: #10a37f; color: white; padding-bottom: 10px;padding-top: 10px;">Login
                   </button>
               </div>
-              {% if request.session.message %}
-                <div class="text-center" style="color:red">{{ request.session.message }}</div>
+              {% if message %}
+                <div class="text-center" style="color:red">{{ message }}</div>
               {% endif %}
 
               </div>
