@@ -17,12 +17,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 </head>
-<body  style="background-image: url('{% static "images/hinh-chatgpt.jpg" %}'); background-size: cover;">
+<body>
 
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card border-0 rounded-3 my-5">
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-light fs-5 text-uppercase fw-bold">Login </h5>
             <form method="post" action="{% url 'handle_login' %}">
@@ -36,35 +36,26 @@
                 <label for="floatingPassword">Password</label>
               </div>
 
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" name="remember_password" style="display:flex">
-                <label class="form-check-label" for="rememberPasswordCheck">
-                  Remember password
-                </label>
-                <a class="form-check-label" href="" for="rememberPasswordCheck" style="float: right; text-decoration: none;">
+              <div class="form-check mb-3" style="padding-left: 1px;">
+                <a class="fw-bold" href="" for="rememberPasswordCheck" style="float: left; text-decoration: none; color:#10a37f;">
                   Forgot password?
                 </a>
               </div>
 
 
-              <div class="d-grid">
-                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Login
+              <div class="d-grid" style="padding: 10px;">
+                <button class="btn btn-login text-uppercase fw-bold" type="submit" style="background-color: #10a37f; color: white; padding-bottom: 10px;padding-top: 10px;">Login
                   </button>
               </div>
-              {% if message %}
-                <div class="text-center" style="color:red">{{ message }}</div>
+              {% if request.session.message %}
+                <div class="text-center" style="color:red">{{ request.session.message }}</div>
               {% endif %}
 
               </div>
             </form>
-            <div class="d-grid mb-2">
-              <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
-                <i class="fab fa-google me-2"></i> <a href="" >Sign in with Google</a> 
-              </button>
-            </div>
             <div class="form-check mb-3" style="text-align:center;">
               <label class="form-check-label" for="rememberPasswordCheck">
-                Don't have an account? <a href="" style="text-decoration: none;"> Register </a>
+                Don't have an account? <a class="fw-bold" href="{% url 'signup' %}" style="text-decoration: none; color:#10a37f;"> Sign up </a>
               </label>
             </div>
           </div>

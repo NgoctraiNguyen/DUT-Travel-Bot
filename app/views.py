@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login, logout
 from django.http import JsonResponse
 import ast
+from django.contrib.auth.password_validation import validate_password
 bot = DuckBot()
 
 
@@ -168,3 +169,41 @@ def handle_login(request):
 def handle_logout(request):
     logout(request)
     return redirect("login")
+
+def signup(request):
+    return render(request,"signup.html")
+
+def handle_signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+
+        email = request.POST['email']
+        pass1 = request.POST['pass1']
+        pass2 = request.POST['pass2']
+        
+        if User.objects.filter(email=email).exists():
+            context = {'message': 'Email đã đăng ký !!.'}
+            return redirect('signup?error')    
+        if User.objects.filter(username=username).exists():
+            context = {'message': 'username đã trùng !!.'}
+            return redirect('signup?error')     
+        if pass1 != pass2:
+            context = {'message': "Mật khẩu không khớp"}
+            return redirect('signup?error') 
+        
+        try:
+            validate_password(pass1)
+            print("Mật khẩu hợp lệ")
+        except Exception as e:
+            context = {'message': 'mật khẩu không hợp lệ!'}
+            return render(request,'signup.html',context)
+        
+        myuser = User.objects.create_user(username,email,pass1)
+        myuser.first_name = firstname
+        myuser.last_name = lastname
+        myuser.is_active = True
+        myuser.save()
+        return render(request, 'login.html',{'message': 'Đăng kí tài khoản thành công!!'})
+    return redirect('signup')
