@@ -152,4 +152,4 @@ class DuckBot():
         if answer == '':
             answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
             img_text = ""
-        return answer, tag, img_text, suggest_text
+        return answer, tag, img_text, suggest_text 

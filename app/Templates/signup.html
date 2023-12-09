@@ -78,8 +78,12 @@
                         </div>
                       </div>
                       <br>
-                      {% if request.session.message %}
-                      <div class="text-center" style="color:red">{{ request.session.message }}</div>
+                      {% if messages %}
+                      <ul class="messages text-center">
+                          {% for message in messages %}
+                              <span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+                          {% endfor %}
+                      </ul>
                     {% endif %}
                       <div class="d-flex justify-content-center">
                         <button type="submit" class="btn" style="background-color: #10a37f;padding-left: 135px;padding-right: 135px;color:white;font-size: 20px;">Register</button>

@@ -8,6 +8,7 @@ from django.contrib.auth import login, logout
 from django.http import JsonResponse
 import ast
 from django.contrib.auth.password_validation import validate_password
+from django.contrib import messages
 bot = DuckBot()
 
 
@@ -38,9 +39,22 @@ def chatting(request):
         # Xử lý kết quả
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
-
+        print("người dùng hỏi :  ",question)
+        list_chao_hoi = ['xin chào', 'chào bạn', 'hello bạn','chào bot']
+        contains_chao_hoi = any(chao_hoi in question for chao_hoi in list_chao_hoi)
+        list_answer = ["Xin chào! Tôi là chatbot Đà Nẵng. Bạn cần giúp gì hôm nay?","Chào bạn! Đây là chatbot Đà Nẵng. Có điều gì tôi có thể hỗ trợ bạn?","Chào bạn! Tôi là đại diện ảo cho Đà Nẵng. Cần tôi giúp gì không?","Xin chào! Tôi là chatbot của Đà Nẵng. Bạn muốn biết thông tin gì về thành phố này?"]
+        random.shuffle(list_answer)
+        
+        if contains_chao_hoi:
+            answer = random.choice(list_answer)
+            tag = "Chào hỏi"
+            content = Content(name=tag, last_tag=tag, user=user)
+            content.save()
+            img_text = ""
+            suggest_text = '["Giới thiệu về thành phố đà nẵng", "Giới thiệu về Đà Nẵng những thắng cảnh nổi tiếng", "Giới thiệu những bãi biển đẹp ở Đà Nẵng?"]'
+            
         # Xử lý content
-        if tag_post == "":
+        elif tag_post == "":
             answer, tag, img_text, suggest_text = bot.run(question)
             content = Content(name=tag, last_tag=tag, user=user)
             content.save()
@@ -52,7 +66,10 @@ def chatting(request):
             content.last_tag = tag
             content.save()
         print(f"img_text {img_text}")
-        if img_text:
+        if '\n' not in  img_text :
+            print("img_text ", img_text)
+            link_img = img_text
+        elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
         else:
@@ -86,12 +103,20 @@ def predict(request):
         # Xử lý kết quả
         # answer, tag = bot.run(question, last_tag= last_tag)
         # # answer = 'Đây là câu trả lời'
-
+        list_chao_hoi = ['xin chào', 'chào bạn', 'hello bạn','chào bot']
+        contains_chao_hoi = any(chao_hoi in question for chao_hoi in list_chao_hoi)
+        list_answer = ["Xin chào! Tôi là chatbot Đà Nẵng. Bạn cần giúp gì hôm nay?","Chào bạn! Đây là chatbot Đà Nẵng. Có điều gì tôi có thể hỗ trợ bạn?","Chào bạn! Tôi là đại diện ảo cho Đà Nẵng. Cần tôi giúp gì không?","Xin chào! Tôi là chatbot của Đà Nẵng. Bạn muốn biết thông tin gì về thành phố này?"]
+        random.shuffle(list_answer)
+        
+        if contains_chao_hoi:
+            answer = random.choice(list_answer)
+            tag = "Chào hỏi"
+            content = Content(name=tag, last_tag=tag, user=user)
+            content.save()
+            img_text = ""
+            suggest_text = '["Giới thiệu về thành phố đà nẵng", "Giới thiệu về Đà Nẵng những thắng cảnh nổi tiếng", "Giới thiệu những bãi biển đẹp ở Đà Nẵng?"]'
         # Xử lý content
-        if tag_post == "":
-            # content = Content(name= 'test2', last_tag= 'hhphh')
-            # content.save()
-            # ...
+        elif tag_post == "":
             answer, tag, img_text, suggest_text = bot.run(question)
             content = Content(name=tag, last_tag=tag, user=user)
             content.save()
@@ -103,7 +128,11 @@ def predict(request):
             content.last_tag = tag
             content.save()
 
-        if img_text:
+        print("len (img_text)")
+        if '\n' not in  img_text:
+            print("img_text ", img_text)
+            link_img = img_text
+        elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
         else:
@@ -160,9 +189,8 @@ def handle_login(request):
             login(request, user)
             return redirect("demo")
         else:
-            request.session["message"] = "Sai mật khẩu hoặc sai tên đăng nhập!!"
-            context = {"message": "Sai mật khẩu hoặc sai tên đăng nhập!!"}
-            return render(request, "login.html", context)
+            messages.error(request, 'Có lỗi xảy ra khi đăng nhập tài khoản.')
+            return redirect("login")
     else:
         return redirect("login")
 
@@ -184,26 +212,27 @@ def handle_signup(request):
         pass2 = request.POST['pass2']
         
         if User.objects.filter(email=email).exists():
-            context = {'message': 'Email đã đăng ký !!.'}
+            messages.error(request, 'Email đã đăng ký !')
             return redirect('signup')    
         if User.objects.filter(username=username).exists():
-            context = {'message': 'username đã trùng !!.'}
+            messages.error(request, 'Username đã trùng!')
             return redirect('signup')     
         if pass1 != pass2:
-            context = {'message': "Mật khẩu không khớp"}
+            messages.error(request, 'Mật khẩu không khớp !')
             return redirect('signup') 
         
         try:
             validate_password(pass1)
             print("Mật khẩu hợp lệ")
         except Exception as e:
-            context = {'message': 'mật khẩu không hợp lệ!'}
-            return render(request,'signup.html',context)
+            messages.error(request, 'mật khẩu không hợp lệ !')
+            return redirect('signup') 
         
         myuser = User.objects.create_user(username,email,pass1)
         myuser.first_name = firstname
         myuser.last_name = lastname
         myuser.is_active = True
         myuser.save()
-        return render(request, 'login.html',{'message': 'Đăng kí tài khoản thành công!!'})
+        messages.success(request, 'Đăng kí tài khoản thành công!')
+        return redirect("login")
     return redirect('signup')

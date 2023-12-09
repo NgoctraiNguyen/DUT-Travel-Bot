@@ -5,3 +5,5 @@ model_train/
 *.pth
 
 __pycache__/
+
+ngrok-v3-stable-windows-amd64/

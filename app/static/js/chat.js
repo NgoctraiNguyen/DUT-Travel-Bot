@@ -12,13 +12,12 @@ const createchatdiv = (message, classname) => {
         chatdiv.innerHTML= chatcontent;
     }
     else{
-        chatdiv.classList.add('d-flex', 'justify-content-start', '');
+        chatdiv.classList.add('d-flex', 'justify-content-start', 'chat-block');
         let chatcontent = `
             <div class="bot-msg">
-                . . .
+                . . . . . .
             </div>
         `;
-        chatdiv.innerHTML= chatcontent;
     }
     return chatdiv;
 }
@@ -28,7 +27,7 @@ const handleChat = () =>{
     if(!question) return;
 
     bodychat.appendChild(createchatdiv(question, 'user-chat'));
-    bodychat.appendChild(createchatdiv(question, 'bot-chat'));
+    bodychat.appendChild(createchatdiv(question, ''));
     $('#body-chat').scrollTop($('#body-chat')[0].scrollHeight);
 }
 

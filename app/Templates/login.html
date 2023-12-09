@@ -47,11 +47,16 @@
                 <button class="btn btn-login text-uppercase fw-bold" type="submit" style="background-color: #10a37f; color: white; padding-bottom: 10px;padding-top: 10px;">Login
                   </button>
               </div>
-              {% if message %}
-                <div class="text-center" style="color:red">{{ message }}</div>
-              {% endif %}
 
-              </div>
+              {% if messages %}
+              <ul class="messages text-center">
+                  {% for message in messages %}
+                      <span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+                  {% endfor %}
+              </ul>
+            {% endif %}
+
+          </div>
             </form>
             <div class="form-check mb-3" style="text-align:center;">
               <label class="form-check-label" for="rememberPasswordCheck">

@@ -1,8 +1,11 @@
+
+
 $(document).ready(function () {
     $('#post-form').submit(function (event) {
         const bodychat = document.getElementById('body-chat');
         event.preventDefault(); 
 
+        if (question === "") return;
 
         const suggest_question_div_lasts = $('.suggest_questions');
         
@@ -16,7 +19,6 @@ $(document).ready(function () {
         var tag = $('#tag').val();
         var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
 
-        if (question === "") return;
         
         const chatdiv = document.createElement('div');
         chatdiv.classList.add('d-flex', 'justify-content-end', 'chat-block', 'user-chat');
@@ -126,10 +128,10 @@ $(document).ready(function () {
                         }, 100); // Thời gian delay giữa các từ (ở đây là 1 giây)
                     }else{
                         if (tmp != "['']") {
-                            div_message.innerHTML += " <br> " + tmp; 
+                            div_message.innerHTML += tmp; 
                         }
                         if(tmp_suggest!=""){
-                            suggest_question_div.innerHTML+="<br>"+tmp_suggest;
+                            suggest_question_div.innerHTML+=tmp_suggest;
 
                         }
                     }
