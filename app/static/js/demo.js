@@ -74,7 +74,7 @@ $(document).ready(function () {
                 var tmp = "";
 
                 if (link_img_list != "" && link_img_list != "None" && link_img_list != "['']") {
-                        tmp += '<img src="' + link_img_list + '" alt="Image" width="50%" style="margin-right: 20px;">';
+                        tmp += '<br> <br> <img src="' + link_img_list + '" alt="Image" width="50%" style="margin-right: 20px;">';
                 }else {
                     tmp = ""
                 }

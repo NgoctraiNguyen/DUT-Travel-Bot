@@ -33,13 +33,14 @@ CSRF_TRUSTED_ORIGINS = ['https://8fe0-14-191-240-30.ngrok-free.app','https://127
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
+    'app'
 ]
 
 MIDDLEWARE = [

@@ -15,16 +15,19 @@ import json
 # CONFIG ARGUMENT
 NUMLABLES = 2000
 model_checkpoint = "nguyenvulebinh/vi-mrc-large"
-FILE_TEXT_CLASSIFICTION = "model_train/data.pth"
+FILE_TEXT_CLASSIFICTION = "data_29_4.pth"
 config = RobertaConfig.from_pretrained(
     "transformers/PhoBERT_base_transformers/config.json", from_tf=False, num_labels = NUMLABLES, output_hidden_states=False,
 )
 data = torch.load(FILE_TEXT_CLASSIFICTION, map_location=torch.device('cpu'))
 model_state = data["model_state"]
-dataset_path = 'data/intents_gia.json'
+dataset_path = 'data/data_new.json'
 # dataset_path = 'data/intents.json'
 
 device= 'cpu'
+
+data_T = {'Tag' : [], 'pro': []}
+df = pd.DataFrame(data_T)
 
 
 def convert_data_to_df(json_data):
@@ -37,11 +40,11 @@ def convert_data_to_df(json_data):
         context.append(intent['context'])
         question.append(intent['question'])
         try:
-            linking.append(intent['linking'])
+            linking.append(intent['imagelink'])
         except:
             linking.append('')
     
-    return pd.DataFrame(list(zip(tag, context, linking, question)), columns=['tag', 'context', 'linking', 'question'])
+    return pd.DataFrame(list(zip(tag, context, linking, question)), columns=['tag', 'context', 'imagelink', 'question'])
 
 
 class DuckBot():
@@ -93,17 +96,25 @@ class DuckBot():
             logits = outputs[0]
             logits = logits.detach().cpu().numpy()
 
-        preds = np.argmax(logits, axis = 1)
-
         probs = torch.softmax(outputs[0], dim=1)
-        prob = probs[0][preds.item()]
+        probs= probs.detach().cpu().numpy()
+        
+        preds = np.argmax(logits, axis = 1)
+        print(f"probs ",probs[0])  
+        print(f"probs {probs[0][preds.item()]}")
         tag = self.tags[preds.item()]
-        print(f"Tỉ lệ: {prob.item()}")
-        # if prob.item() > 0.75 :
-        #     tag = self.tags[preds.item()]
-        # else:
-        #     tag= None
-
+        print(f"tag {tag}") 
+        
+        if probs[0][preds.item()] > 0.09:
+            tag = self.tags[preds.item()]
+        else:
+            tag= None
+        with open('threshold.txt', 'a', encoding='utf-8') as file:
+            if probs[0][preds.item()] > 0.09:
+                tag = self.tags[preds.item()]
+                file.write(f'Tag: {tag}, Probability: {probs[0][preds.item()]}, 1 \n')
+            else:
+                file.write(f'Tag: {tag}, Probability: {probs[0][preds.item()]}, 0 \n')
         return tag
 
     def get_answer(self, question, context):
@@ -118,13 +129,23 @@ class DuckBot():
         return answer[0]['answer']
 
     def create_more_info(self, tag):
-        question = self.df.loc[self.df['tag'] == tag, 'question'].values[0]
-        print("question ",question)
-        link = self.df.loc[self.df['tag'] == tag, 'linking'].values[0]
-        print("Link: ",link)
-        img_text = str(link) 
-        suggest_text = str(question)
-        return img_text, suggest_text  
+        if tag != None:
+            question = self.df.loc[self.df['tag'] == tag, 'question'].values[0]
+            print("question ",question)
+            link = self.df.loc[self.df['tag'] == tag, 'imagelink'].values[0]
+            print("Link: ",link)
+            img_text = str(link) 
+            suggest_text = str(question)
+            return img_text, suggest_text  
+        else:
+            tag = "Thành phố đà nẵng"
+            question = self.df.loc[self.df['tag'] == tag, 'question'].values[0]
+            print("question ",question)
+            link = self.df.loc[self.df['tag'] == tag, 'imagelink'].values[0]
+            print("Link: ",link)
+            img_text = str(link) 
+            suggest_text = str(question)
+            return img_text, suggest_text  
 
     def run(self, question, last_tag= None):
         tag = self.get_tag(question)
@@ -136,7 +157,7 @@ class DuckBot():
             img_text, suggest_text = self.create_more_info(tag)
         
         if tag == None:
-            answer = "Xin lỗi tôi không hiểu câu hỏi của bạn!"
+            answer = "Xin lỗi tôi không hiểu câu hỏi của bạn, bạn có tham khảo gợi ý dưới đây !"
             print(f'Xin lỗi tôi không hiểu câu hỏi của bạn!')
             img_text = ""
         else:
@@ -150,6 +171,8 @@ class DuckBot():
                     break
                 
         if answer == '':
-            answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi!'
+            answer = 'Xin lỗi, câu hỏi này nằm ngoài hiểu biết của tôi rồi, bạn có tham khảo gợi ý dưới đây !'
             img_text = ""
+        print("img_text  ", img_text)
+        
         return answer, tag, img_text, suggest_text 

@@ -66,9 +66,12 @@ def chatting(request):
             content.last_tag = tag
             content.save()
         print(f"img_text {img_text}")
-        if '\n' not in  img_text :
-            print("img_text ", img_text)
-            link_img = img_text
+        if '\n' not in  img_text:
+            if '[' in img_text:
+                print("img_text ", img_text)
+                link_img = img_text[2:-2]
+            else:
+                link_img = img_text
         elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
@@ -129,14 +132,19 @@ def predict(request):
             content.save()
 
         print("len (img_text)")
+            
         if '\n' not in  img_text:
-            print("img_text ", img_text)
-            link_img = img_text
+            if '[' in img_text:
+                print("img_text ", img_text)
+                link_img = img_text[2:-2]
+            else:
+                link_img = img_text
         elif img_text:
             img_text_list = img_text.split("\n")
             link_img = img_text_list[0]
         else:
             link_img = ""
+
 
         print("link_img ", link_img)
         conversation.user_question = question
